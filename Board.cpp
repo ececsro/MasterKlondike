@@ -16,3 +16,10 @@ Board::~Board() {
 	// TODO Auto-generated destructor stub
 }
 
+Board::startPlay() {
+	cout << "Hi"
+}
+
+Board::play() {
+	cout << "Playing"
+}
