@@ -14,7 +14,7 @@ class Klondike {
 public:
 	Klondike();
 	virtual ~Klondike();
-	play();
+	void play(void);
 };
 
 #endif /* KLONDIKE_H_ */

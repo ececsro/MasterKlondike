@@ -19,10 +19,10 @@ Board::~Board() {
 	// TODO Auto-generated destructor stub
 }
 
-void startPlay(void) {
+void Board::startPlay() {
     cout << "Hi";
 }
 
-/*void play(void) {
+void Board::play() {
 	cout << "Playing";
-}*/
+}

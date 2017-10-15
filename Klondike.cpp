@@ -9,6 +9,7 @@
 #include "Board.h"
 
 Klondike::Klondike() {
+
 	// TODO Auto-generated constructor stub
 
 }
@@ -17,10 +18,10 @@ Klondike::~Klondike() {
 	// TODO Auto-generated destructor stub
 }
 
-Board board;
-void play(void) {
 
+void Klondike::play() {
+  Board board;
   board.startPlay();
-//  board.play();
+  board.play();
 };
 
