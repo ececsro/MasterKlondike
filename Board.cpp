@@ -7,6 +7,9 @@
 
 #include "Board.h"
 
+#include <iostream>
+using namespace std;
+
 Board::Board() {
 	// TODO Auto-generated constructor stub
 
@@ -16,10 +19,10 @@ Board::~Board() {
 	// TODO Auto-generated destructor stub
 }
 
-Board::startPlay() {
-	cout << "Hi"
+void startPlay(void) {
+    cout << "Hi";
 }
 
-Board::play() {
-	cout << "Playing"
-}
+/*void play(void) {
+	cout << "Playing";
+}*/

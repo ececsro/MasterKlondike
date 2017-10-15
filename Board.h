@@ -12,6 +12,8 @@ class Board {
 public:
 	Board();
 	virtual ~Board();
+	void startPlay();
+	void play();
 };
 
 #endif /* BOARD_H_ */
