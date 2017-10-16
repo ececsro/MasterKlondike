@@ -9,9 +9,13 @@
 #define RULES_H_
 
 class Rules {
+
+	int TypeOfRules;
+
 public:
-	Rules();
+	Rules(int);
 	virtual ~Rules();
+	void setInitial();
 };
 
 #endif /* RULES_H_ */

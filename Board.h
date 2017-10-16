@@ -7,13 +7,17 @@
 
 #ifndef BOARD_H_
 #define BOARD_H_
+#include "IOInterface.h"
 
 class Board {
+	IOInterface io;
+
 public:
 	Board();
 	virtual ~Board();
 	void startPlay();
 	void play();
+	void showBoard();
 };
 
 #endif /* BOARD_H_ */

@@ -6,6 +6,8 @@
  */
 
 #include "Board.h"
+#include "Player.h"
+#include "IOInterface.h"
 
 #include <iostream>
 using namespace std;
@@ -20,9 +22,16 @@ Board::~Board() {
 }
 
 void Board::startPlay() {
-    cout << "Hi";
+    io.putConsole("Hi");
+    Player Player1(io);
+    Player1.setInitial();
+	this->showBoard();
 }
 
 void Board::play() {
-	cout << "Playing";
+	io.putConsole("Playing");
+}
+
+void Board::showBoard() {
+	io.putConsole("board showBoard");
 }

@@ -7,11 +7,15 @@
 
 #ifndef IOINTERFACE_H_
 #define IOINTERFACE_H_
+#include <string>
+using namespace std;
 
 class IOInterface {
 public:
 	IOInterface();
 	virtual ~IOInterface();
+	void putConsole(string);
+	string getConsole();
 };
 
 #endif /* IOINTERFACE_H_ */
