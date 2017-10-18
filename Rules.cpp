@@ -14,13 +14,8 @@ Rules::Rules() {
 
 Rules::Rules(int TypeOfRules) {
 
-	switch (TypeOfRules) {
-	case STANDARD:
-	    TypeOfRules=STANDARD;
-	default:
-		TypeOfRules=STANDARD;
-	}
 }
+
 
 Rules::~Rules() {
 	// TODO Auto-generated destructor stub

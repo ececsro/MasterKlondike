@@ -7,6 +7,7 @@
 
 #include "Player.h"
 #include "IOInterface.h"
+#include "DeckOfCards.h"
 #include <iostream>
 using namespace std;
 
@@ -24,11 +25,15 @@ Player::~Player() {
 void Player::setInitial() {
 	string inputString="N";
 	io.putConsole("Player set initial");
-	do
+/*	do
 		inputString = io.getConsole();
 	while (inputString.compare("Y"));
     io.putConsole(inputString);
+*/
 
-    Rules MyRules (STANDARD);
-    myRules.setInitial();
+    DeckOfCards DeckToPlay;
+    DeckToPlay.createCards();
+    DeckToPlay.shuffleDeck();
+//    Rules RulesToPlay (STANDARD);
+//    RulesToPlay.setInitial();
 }

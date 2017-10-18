@@ -7,11 +7,20 @@
 
 #ifndef DECKOFCARDS_H_
 #define DECKOFCARDS_H_
-
+#include "Card.h"
+#include <vector>
+using namespace std;
 class DeckOfCards {
+	int TypeOfDeck;
+	vector<Card> AllCardsInDeck;
+
+protected:
+	int NumOfCards;
 public:
 	DeckOfCards();
 	virtual ~DeckOfCards();
+	void createCards(void);
+	void shuffleDeck(void);
 };
 
 #endif /* DECKOFCARDS_H_ */

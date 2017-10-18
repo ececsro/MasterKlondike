@@ -11,8 +11,10 @@
 class Rules {
 
 	int TypeOfRules;
+	const int STANDARD=1;
 
 public:
+	Rules();
 	Rules(int);
 	virtual ~Rules();
 	void setInitial();
