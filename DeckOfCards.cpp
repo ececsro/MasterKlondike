@@ -11,6 +11,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <iterator>
+#include <time.h>
 using namespace std;
 
 DeckOfCards::DeckOfCards() {
@@ -38,31 +40,35 @@ void DeckOfCards::createCards(void) {
 }
 
 void DeckOfCards::shuffleDeck(void) {
-	for (int i=0 ; i < this->NumOfCards ; i++) {
-		AllCardsInDeck[i].printCard();
+/*
+    Example code to follow all the list and print each card
+ 	list<Card>::iterator listPosition;
+	for (listPosition = AllCardsInDeck.begin() ; listPosition != AllCardsInDeck.end(); listPosition++) {
+		listPosition->printCard();
 	}
 
-	Card CardToMove;
-    int FirstCard;
-    int SecondCard;
-    int ShuffleTimes;
-    const int MinShuffleTime = 1;
-    const int MaxShuffleTime = 5;
-    ShuffleTimes = MinShuffleTime + rand()%(MaxShuffleTime-MinShuffleTime);
+*/
+ 	list<Card>::iterator CardPosIterator;
+	list<Card> CardsWorkCopy = AllCardsInDeck;
 
-    int j = 0;
-    while (j < ShuffleTimes){
-        FirstCard = 1 + rand()%NumOfCards;
-        SecondCard = 1 + rand()%NumOfCards;
-        CardToMove = AllCardsInDeck[FirstCard];
-        AllCardsInDeck[FirstCard] = AllCardsInDeck[SecondCard];
-        AllCardsInDeck[SecondCard] = CardToMove;
-        j++
-    }
-
-	for (i=0 ; i < this->NumOfCards ; i++) {
-		AllCardsInDeck[i].printCard();
+	int offset;
+	srand (time(NULL));
+	while (CardsWorkCopy.size() != 0){
+		offset = rand()%CardsWorkCopy.size();
+		CardPosIterator = CardsWorkCopy.begin();
+		for (int i=0; i < offset; i++){
+			CardPosIterator++;
+		}
+		ShuffledDeck.emplace(*CardPosIterator);
+//		CardPosIterator->printCard();
+		CardsWorkCopy.erase(CardPosIterator);
 	}
 
+    ShuffledDeck.top().printCard();
+
+/*	for (listPosition = AllCardsInDeck.begin() ; listPosition != AllCardsInDeck.end(); listPosition++) {
+		listPosition->printCard();
+	}
+*/
 }
 

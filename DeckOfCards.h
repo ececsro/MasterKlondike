@@ -9,10 +9,13 @@
 #define DECKOFCARDS_H_
 #include "Card.h"
 #include <vector>
+#include <list>
+#include <stack>
 using namespace std;
 class DeckOfCards {
 	int TypeOfDeck;
-	vector<Card> AllCardsInDeck;
+	list<Card> AllCardsInDeck;
+	stack<Card> ShuffledDeck;
 
 protected:
 	int NumOfCards;
