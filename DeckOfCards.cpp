@@ -10,7 +10,6 @@
 #include "IOInterface.h"
 #include <iostream>
 #include <string>
-#include <vector>
 #include <iterator>
 #include <time.h>
 using namespace std;
@@ -32,9 +31,6 @@ void DeckOfCards::createCards(void) {
 	int CardId;
 	for (int i=0 ; i < this->NumOfCards ; i++) {
 		CardId=i;
-		cout << "NumOfCards" << NumOfCards << endl;
-		cout << "i" << i << endl;
-
 		AllCardsInDeck.emplace_back(CardId);
 	}
 }
@@ -64,11 +60,36 @@ void DeckOfCards::shuffleDeck(void) {
 		CardsWorkCopy.erase(CardPosIterator);
 	}
 
-    ShuffledDeck.top().printCard();
 
+//	ShuffledDeck.top().printCard();
 /*	for (listPosition = AllCardsInDeck.begin() ; listPosition != AllCardsInDeck.end(); listPosition++) {
 		listPosition->printCard();
 	}
 */
 }
 
+void DeckOfCards::deployInitial(int NumOfColums) {
+
+	list<Card> ColumnOfCards[NumOfColums];
+	int j;
+	for (int i=0; i < NumOfColums; i++){
+		for (j=i; j < NumOfColums; j++){
+			ColumnOfCards[j].emplace_back(ShuffledDeck.top());
+			ShuffledDeck.pop();
+			if (j == i){
+				ColumnOfCards[j].back().setCardVisible();
+				ColumnOfCards[j].back().setCardEligible();
+			}
+		}
+	}
+
+	IOInterface io;
+	for (int i=0; i < NumOfColums; i++){
+
+		io.putConsole("-- Column " + to_string(i+1) + " --");
+
+		for (list<Card>::iterator listPosition = ColumnOfCards[i].begin() ; listPosition != ColumnOfCards[i].end(); listPosition++) {
+			listPosition->printCard();
+	    }
+	}
+}

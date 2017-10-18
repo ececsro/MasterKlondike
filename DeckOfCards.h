@@ -24,6 +24,7 @@ public:
 	virtual ~DeckOfCards();
 	void createCards(void);
 	void shuffleDeck(void);
+	void deployInitial(int);
 };
 
 #endif /* DECKOFCARDS_H_ */

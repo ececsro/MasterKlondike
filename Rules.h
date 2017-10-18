@@ -7,17 +7,15 @@
 
 #ifndef RULES_H_
 #define RULES_H_
-
+#include "DeckOfCards.h"
 class Rules {
-
-	int TypeOfRules;
-	const int STANDARD=1;
 
 public:
 	Rules();
 	Rules(int);
 	virtual ~Rules();
 	void setInitial();
+    void InitialCardDeploy(DeckOfCards);
 };
 
 #endif /* RULES_H_ */

@@ -6,6 +6,7 @@
  */
 
 #include "Player.h"
+#include "Rules.h"
 #include "IOInterface.h"
 #include "DeckOfCards.h"
 #include <iostream>
@@ -34,6 +35,7 @@ void Player::setInitial() {
     DeckOfCards DeckToPlay;
     DeckToPlay.createCards();
     DeckToPlay.shuffleDeck();
-//    Rules RulesToPlay (STANDARD);
-//    RulesToPlay.setInitial();
+
+    Rules RulesToPlay;
+    RulesToPlay.InitialCardDeploy(DeckToPlay);
 }

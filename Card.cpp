@@ -7,6 +7,7 @@
 
 #include "Card.h"
 #include "IOInterface.h"
+#include <string>
 #include <iostream>
 using namespace std;
 
@@ -14,6 +15,8 @@ Card::Card() {
 	NumOfCards=52;
 	CardId=NumOfCards;
 	NumOfCards++;
+    isVisible=false;
+    isEligible=false;
 }
 
 Card::Card(int CardIdParam) {
@@ -50,7 +53,8 @@ void Card::setInitialValues(void) {
 
 	Number=(CardId - ((this->NumOfCards/4)*Suit));
 	setCardName();
-
+    isVisible=false;
+    isEligible=false;
 }
 
 
@@ -61,7 +65,25 @@ void Card::setCardName(void) {
 }
 
 void Card::printCard(void) {
-	IOInterface ioTmp;
 
-	ioTmp.putConsole("CardName: " + CardName);
+	string OutputString;
+	OutputString = "CardName: " + CardName;
+    if (isVisible){
+    	OutputString = OutputString + " IS VISABLE";
+    }
+
+    if (isEligible){
+    	OutputString = OutputString + " AND ELIGIBLE";
+    }
+
+	IOInterface ioTmp;
+	ioTmp.putConsole(OutputString);
+}
+
+void Card::setCardEligible(void) {
+	isEligible=true;
+}
+
+void Card::setCardVisible(void) {
+	isVisible=true;
 }

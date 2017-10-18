@@ -6,13 +6,10 @@
  */
 
 #include "Rules.h"
+#include "DeckOfCards.h"
 
 Rules::Rules() {
 	// TODO Auto-generated constructor stub
-
-}
-
-Rules::Rules(int TypeOfRules) {
 
 }
 
@@ -21,6 +18,8 @@ Rules::~Rules() {
 	// TODO Auto-generated destructor stub
 }
 
-void Rules::setInitial() {
+void Rules::InitialCardDeploy(DeckOfCards DeckForRules) {
+	int NumOfColumns=7;
+    DeckForRules.deployInitial(NumOfColumns);
 
 }

@@ -21,6 +21,8 @@ class Card {
 	int Number;
 	int NumOfCards;
 	string CardName;
+	bool isVisible;
+	bool isEligible;
 public:
 	Card();
 	Card(int);
@@ -28,6 +30,8 @@ public:
 	void setInitialValues(void);
 	void setCardName(void);
 	void printCard(void);
+	void setCardEligible(void);
+	void setCardVisible(void);
 };
 
 #endif /* CARD_H_ */
