@@ -69,7 +69,7 @@ void Card::printCard(void) {
 	string OutputString;
 	OutputString = "CardName: " + CardName;
     if (isVisible){
-    	OutputString = OutputString + " IS VISABLE";
+    	OutputString = OutputString + " IS VISIBLE";
     }
 
     if (isEligible){
