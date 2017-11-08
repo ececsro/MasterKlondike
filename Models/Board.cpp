@@ -6,8 +6,9 @@
  */
 
 #include "Board.h"
-#include "Player.h"
-#include "IOInterface.h"
+
+#include "../Controllers/Player.h"
+#include "../Utils/IOInterface.h"
 
 #include <iostream>
 using namespace std;

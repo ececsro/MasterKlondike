@@ -6,9 +6,11 @@
  */
 
 #include "Player.h"
-#include "Rules.h"
-#include "IOInterface.h"
-#include "DeckOfCards.h"
+#include "../Utils/IOInterface.h"
+#include "../Models/DeckOfCards.h"
+#include "../Models/Rules.h"
+#include "../Models/DeckOfCards.h"
+
 #include <iostream>
 using namespace std;
 

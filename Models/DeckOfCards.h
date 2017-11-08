@@ -7,10 +7,11 @@
 
 #ifndef DECKOFCARDS_H_
 #define DECKOFCARDS_H_
-#include "Card.h"
 #include <vector>
 #include <list>
 #include <stack>
+
+#include "Card.h"
 using namespace std;
 class DeckOfCards {
 	int TypeOfDeck;

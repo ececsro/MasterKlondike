@@ -6,6 +6,7 @@
  */
 
 #include "Rules.h"
+
 #include "DeckOfCards.h"
 
 Rules::Rules() {

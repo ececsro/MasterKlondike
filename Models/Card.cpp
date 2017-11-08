@@ -6,7 +6,8 @@
  */
 
 #include "Card.h"
-#include "IOInterface.h"
+
+#include "..\Utils\IOInterface.h"
 #include <string>
 #include <iostream>
 using namespace std;

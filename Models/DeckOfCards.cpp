@@ -6,12 +6,14 @@
  */
 
 #include "DeckOfCards.h"
-#include "Card.h"
-#include "IOInterface.h"
+
+#include "..\Utils\IOInterface.h"
 #include <iostream>
 #include <string>
 #include <iterator>
 #include <time.h>
+
+#include "Card.h"
 using namespace std;
 
 DeckOfCards::DeckOfCards() {

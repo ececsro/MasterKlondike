@@ -8,7 +8,7 @@
 #ifndef PLAYER_H_
 #define PLAYER_H_
 
-#include "IOInterface.h"
+#include "../Utils/IOInterface.h"
 
 class Player {
 	IOInterface io;

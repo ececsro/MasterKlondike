@@ -7,7 +7,7 @@
 
 #ifndef BOARD_H_
 #define BOARD_H_
-#include "IOInterface.h"
+#include "../Utils/IOInterface.h"
 
 class Board {
 	IOInterface io;
