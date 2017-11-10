@@ -1,8 +1,7 @@
 #include <assert.h>
 
 #include "KlondikeConsoleView.h"
-
-class StartView;
+#include "StartView.h"
 
 KlondikeConsoleView::KlondikeConsoleView() {
 	// TODO Auto-generated constructor stub
@@ -21,5 +20,10 @@ void KlondikeConsoleView::interact(Controller* controller) {
 
 void KlondikeConsoleView::accept(StartController* startController) {
 	assert (startController!=nullptr);
-    int a;
+    ioConsole.putConsole("KlondikeConsoleView::accept(StartController* startController)");
+    new StartView(startController);
+}
+
+IOInterface KlondikeConsoleView::getIOInterface() {
+	return this->ioConsole;
 }

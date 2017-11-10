@@ -6,14 +6,19 @@ class StartView;
 
 #include "../Controllers/ControllerVisitor.h"
 #include "../Controllers/Controller.h"
+#include "../Utils/IOInterface.h"
 
 class KlondikeConsoleView: public ControllerVisitor {
-	StartView* startView;
+
+protected:
+    IOInterface ioConsole;
+
 public:
 	KlondikeConsoleView();
 	virtual ~KlondikeConsoleView();
 	void interact(Controller*);
 	virtual void accept(StartController*);
+	IOInterface getIOInterface();
 };
 
 #endif /* MASTERKLONDIKE_VIEWS_KLONDIKECONSOLEVIEW_H_ */

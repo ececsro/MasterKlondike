@@ -5,10 +5,9 @@
 #include "StartController.h"
 #include "..\Models\Game.h"
 
-
 class Logic {
-	StartController startController;
-	Game actualGame;
+	StartController* startController;
+	Game* actualGame;
 
 public:
 	Logic();

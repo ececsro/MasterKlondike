@@ -14,7 +14,6 @@
 #include "Card.h"
 using namespace std;
 class DeckOfCards {
-	int TypeOfDeck;
 	list<Card> AllCardsInDeck;
 	stack<Card> ShuffledDeck;
 

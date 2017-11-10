@@ -10,12 +10,13 @@
 #include "..\Utils\IOInterface.h"
 #include <string>
 #include <iostream>
+#include <assert.h>
 using namespace std;
 
 Card::Card() {
+    assert (false);
 	NumOfCards=52;
 	CardId=NumOfCards;
-	NumOfCards++;
     isVisible=false;
     isEligible=false;
 }
@@ -52,7 +53,6 @@ void Card::setInitialValues(void) {
 		break;
 	}
 
-	Number=(CardId - ((this->NumOfCards/4)*Suit));
 	setCardName();
     isVisible=false;
     isEligible=false;
@@ -61,7 +61,8 @@ void Card::setInitialValues(void) {
 
 void Card::setCardName(void) {
 
-	CardName=NumberName[Number] + " " + SuitName[Suit];
+	int numberDigits=(CardId - ((this->NumOfCards/4)*Suit));
+	CardName=NumberName[numberDigits] + " " + SuitName[Suit];
 
 }
 
@@ -81,10 +82,18 @@ void Card::printCard(void) {
 	ioTmp.putConsole(OutputString);
 }
 
-void Card::setCardEligible(void) {
-	isEligible=true;
+void Card::setCardEligible(bool eligible) {
+	isEligible=eligible;
 }
 
-void Card::setCardVisible(void) {
-	isVisible=true;
+void Card::setCardVisible(bool visible) {
+	isVisible=visible;
+}
+
+bool Card::getCardEligible(void) {
+	return (isEligible);
+}
+
+bool Card::getCardVisible(void) {
+	return (isVisible);
 }

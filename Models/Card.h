@@ -18,7 +18,6 @@ class Card {
 	const string SuitName [4] = {"Diamonds","Clubs","Hearts","Spades"};
 	const string ColorName [2] = {"Red","Black"};
 	const string NumberName [13] = {"Ace","2","3","4","5","6","7","8","9","10","Jack","Queen","King"};
-	int Number;
 	int NumOfCards;
 	string CardName;
 	bool isVisible;
@@ -30,8 +29,10 @@ public:
 	void setInitialValues(void);
 	void setCardName(void);
 	void printCard(void);
-	void setCardEligible(void);
-	void setCardVisible(void);
+	void setCardEligible(bool);
+	void setCardVisible(bool);
+	bool getCardEligible(void);
+	bool getCardVisible(void);
 };
 
 #endif /* CARD_H_ */

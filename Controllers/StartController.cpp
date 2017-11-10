@@ -10,7 +10,12 @@ StartController::~StartController() {
 }
 
 void StartController::visit(ControllerVisitor* controllerVisitor) {
-//	controllerVisitor->accept(this);
-	int a=1;
 	controllerVisitor->accept(this);
+}
+
+void StartController::createDeckRemain() {
+
+	// Deck Constructor
+	DeckConstructor(this->gameOptions, this->deckRemain);
+
 }

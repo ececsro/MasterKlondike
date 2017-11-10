@@ -18,7 +18,6 @@ using namespace std;
 
 DeckOfCards::DeckOfCards() {
 	// TODO Auto-generated constructor stub
-	TypeOfDeck=0;
 	NumOfCards=52;
 
 }
@@ -79,8 +78,8 @@ void DeckOfCards::deployInitial(int NumOfColums) {
 			ColumnOfCards[j].emplace_back(ShuffledDeck.top());
 			ShuffledDeck.pop();
 			if (j == i){
-				ColumnOfCards[j].back().setCardVisible();
-				ColumnOfCards[j].back().setCardEligible();
+				ColumnOfCards[j].back().setCardVisible("true");
+				ColumnOfCards[j].back().setCardEligible(true);
 			}
 		}
 	}
