@@ -3,12 +3,12 @@
 Logic::Logic() {
 	// TODO Auto-generated constructor stub
 	actualGame = new (Game);
+	startController=new StartController(actualGame);
 
 }
 
 Logic::~Logic() {
 	// TODO Auto-generated destructor stub
-	delete (actualGame);
 }
 
 Controller* Logic::getNextController() {
@@ -17,17 +17,19 @@ Controller* Logic::getNextController() {
 
 	switch ( gameStatus ) {
 	case GameStatus::START:
-		startController=new StartController;
-		return (startController());
+		return (startController);
 		break;
 	case GameStatus::IN_GAME:
 		//TODO LOGIC GAMESTATUS IN_GAME
+		return (nullptr);
         break;
 	case GameStatus::FINISH:
 		//TODO LOGIC GAMESTATUS FINISH
-        break;
+		return (nullptr);
+		break;
 	default:
 		return (nullptr);
         break;
 	}
 }
+

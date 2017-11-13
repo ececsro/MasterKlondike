@@ -2,6 +2,7 @@
 #define MASTERKLONDIKE_MODELS_GAMEOPTIONS_H_
 
 #define NUM_OF_CARDS 52
+#define NUM_OF_TABLEUS 7
 
 class GameOptions {
 	int numOfCards;

@@ -20,7 +20,6 @@ void KlondikeConsoleView::interact(Controller* controller) {
 
 void KlondikeConsoleView::accept(StartController* startController) {
 	assert (startController!=nullptr);
-    ioConsole.putConsole("KlondikeConsoleView::accept(StartController* startController)");
     new StartView(startController);
 }
 

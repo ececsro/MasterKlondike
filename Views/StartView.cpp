@@ -12,5 +12,5 @@ StartView::~StartView() {
 StartView::StartView(StartController* controllerFromView) {
 	assert (controllerFromView!=nullptr);
 	controllerFromView->createDeckRemain();
-
+	controllerFromView->initialDeploy();
 }

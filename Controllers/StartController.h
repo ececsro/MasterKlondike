@@ -9,10 +9,11 @@ class StartController: public Controller {
 
 
 public:
-	StartController();
+	StartController(Game*);
 	virtual ~StartController();
 	void visit(ControllerVisitor*);
 	void createDeckRemain();
+	void initialDeploy();
 };
 
 #endif /* MASTERKLONDIKE_CONTROLLERS_STARTCONTROLLER_H_ */

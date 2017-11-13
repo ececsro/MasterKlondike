@@ -9,9 +9,10 @@
 using namespace std;
 
 class DeckConstructor {
-	list<Card> AllCardsInDeck;
-	list<Card> ShuffledDeck;
+	list<Card> allCardsInDeck;
+	list<Card> shuffledDeck;
 	GameOptions* gameOptions;
+	const int numOfCards = NUM_OF_CARDS;
 
 public:
 	DeckConstructor();

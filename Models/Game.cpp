@@ -13,5 +13,5 @@ GameStatus Game::getStatus() {
 }
 
 void Game::setStatus(GameStatus newGameStatus) {
-	status = newGameStatus;
+    status = newGameStatus;
 }

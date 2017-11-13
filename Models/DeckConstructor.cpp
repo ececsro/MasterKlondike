@@ -18,48 +18,32 @@ DeckConstructor::DeckConstructor(GameOptions* gameOptionsParam, Deck* deckInitia
 
 	createCards();
 	shuffleDeck();
-	deckInitial->setDeck(ShuffledDeck);
-
+	deckInitial->setDeck(shuffledDeck);
 }
 
 void DeckConstructor::createCards() {
 
 	int CardId;
-	for (int i=0 ; i < gameOptions->getNumOfCards() ; i++) {
+	for (int i=0 ; i < numOfCards ; i++) {
 		CardId=i;
-		AllCardsInDeck.emplace_back(CardId);
+		allCardsInDeck.emplace_back(CardId);
 	}
 }
 
 void DeckConstructor::shuffleDeck() {
-/*
-    Example code to follow all the list and print each card
- 	list<Card>::iterator listPosition;
-	for (listPosition = AllCardsInDeck.begin() ; listPosition != AllCardsInDeck.end(); listPosition++) {
-		listPosition->printCard();
-	}
-
-*/
- 	list<Card>::iterator CardPosIterator;
-	list<Card> CardsWorkCopy = AllCardsInDeck;
+ 	list<Card>::iterator cardPosition;
+	list<Card> CardsWorkCopy = allCardsInDeck;
 
 	int offset;
 	srand (time(NULL));
 	while (CardsWorkCopy.size() != 0){
 		offset = rand()%CardsWorkCopy.size();
-		CardPosIterator = CardsWorkCopy.begin();
+		cardPosition = CardsWorkCopy.begin();
 		for (int i=0; i < offset; i++){
-			CardPosIterator++;
+			cardPosition++;
 		}
-		ShuffledDeck.emplace_back(*CardPosIterator);
-		CardPosIterator->printCard();
-		CardsWorkCopy.erase(CardPosIterator);
+		shuffledDeck.emplace_back(*cardPosition);
+		CardsWorkCopy.erase(cardPosition);
 	}
-
-	//	ShuffledDeck.top().printCard();
-	/*	for (listPosition = AllCardsInDeck.begin() ; listPosition != AllCardsInDeck.end(); listPosition++) {
-			listPosition->printCard();
-		}
-	*/
 }
 

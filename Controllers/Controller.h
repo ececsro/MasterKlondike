@@ -6,25 +6,32 @@
 
 class ControllerVisitor;
 
+#include <vector>
+
 #include "../Models/Deck/DeckRemain.h"
+#include "../Models/Deck/DeckTableu.h"
+
 //class DeckWaste;
 //class DeckFoundation;
-//class DeckColumn;
 
 #include "../Models/GameOptions.h"
+#include "../Models/Game.h"
 
 class Controller {
 
 protected:
 	GameOptions* gameOptions;
 	DeckRemain* deckRemain;
+	vector <DeckTableu*> tableu;
+	Game* actualGame;
+
 //	DeckWaste *deckWaste;
 //	DeckFoundation **deckFoundation;
-//	DeckColumn **deckColumn;
 
 public:
 	virtual ~Controller();
-	Controller();
+	Controller(Game*);
+	void setGameStatus(GameStatus);
 	virtual void visit(ControllerVisitor* controllerVisitor) =0;
 };
 

@@ -14,25 +14,24 @@
 using namespace std;
 
 Card::Card() {
-    assert (false);
 	NumOfCards=52;
-	CardId=NumOfCards;
-    isVisible=false;
-    isEligible=false;
+	cardId=NumOfCards;
 }
 
 Card::Card(int CardIdParam) {
+
 	NumOfCards=52;
-	CardId=CardIdParam;
+	cardId=CardIdParam;
     setInitialValues();
+
 }
 Card::~Card() {
 	// TODO Auto-generated destructor stub
 }
 
 void Card::setInitialValues(void) {
-    int SuitNum;
-	SuitNum=(CardId / (this->NumOfCards/4));
+	int SuitNum;
+	SuitNum=(cardId / (this->NumOfCards/4));
 
 	switch (SuitNum){
 	case 0:
@@ -51,6 +50,8 @@ void Card::setInitialValues(void) {
 		Suit = spades;
 		Color = black;
 		break;
+	default:
+		break;
 	}
 
 	setCardName();
@@ -61,7 +62,7 @@ void Card::setInitialValues(void) {
 
 void Card::setCardName(void) {
 
-	int numberDigits=(CardId - ((this->NumOfCards/4)*Suit));
+	int numberDigits=(cardId - ((this->NumOfCards/4)*Suit));
 	CardName=NumberName[numberDigits] + " " + SuitName[Suit];
 
 }
@@ -69,7 +70,7 @@ void Card::setCardName(void) {
 void Card::printCard(void) {
 
 	string OutputString;
-	OutputString = "CardName: " + CardName;
+	OutputString = "CardName " + to_string(cardId) + ": " + CardName;
     if (isVisible){
     	OutputString = OutputString + " IS VISIBLE";
     }
@@ -96,4 +97,8 @@ bool Card::getCardEligible(void) {
 
 bool Card::getCardVisible(void) {
 	return (isVisible);
+}
+
+int Card::getCardId(void) {
+	return (cardId);
 }
