@@ -1,11 +1,9 @@
-#include <assert.h>
-
 #include "KlondikeConsoleView.h"
 #include "StartView.h"
+#include "InGameView.h"
 
 KlondikeConsoleView::KlondikeConsoleView() {
 	// TODO Auto-generated constructor stub
-
 }
 
 KlondikeConsoleView::~KlondikeConsoleView() {
@@ -21,6 +19,11 @@ void KlondikeConsoleView::interact(Controller* controller) {
 void KlondikeConsoleView::accept(StartController* startController) {
 	assert (startController!=nullptr);
     new StartView(startController);
+}
+
+void KlondikeConsoleView::accept(InGameController* inGameController) {
+	assert (inGameController!=nullptr);
+    new InGameView(inGameController);
 }
 
 IOInterface KlondikeConsoleView::getIOInterface() {

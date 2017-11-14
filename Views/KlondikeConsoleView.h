@@ -1,12 +1,13 @@
 #ifndef MASTERKLONDIKE_VIEWS_KLONDIKECONSOLEVIEW_H_
 #define MASTERKLONDIKE_VIEWS_KLONDIKECONSOLEVIEW_H_
 
-class StartController;
-class StartView;
+#include <assert.h>
 
 #include "../Controllers/ControllerVisitor.h"
-#include "../Controllers/Controller.h"
+#include "../Controllers/StartController.h"
+#include "../Controllers/InGameController.h"
 #include "../Utils/IOInterface.h"
+#include "../Utils/AllowedDialog.h"
 
 class KlondikeConsoleView: public ControllerVisitor {
 
@@ -18,6 +19,7 @@ public:
 	virtual ~KlondikeConsoleView();
 	void interact(Controller*);
 	virtual void accept(StartController*);
+	virtual void accept(InGameController*);
 	IOInterface getIOInterface();
 };
 

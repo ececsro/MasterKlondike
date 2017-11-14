@@ -6,8 +6,6 @@
  */
 
 #include "IOInterface.h"
-#include <iostream>
-#include <string>
 using namespace std;
 
 IOInterface::IOInterface() {
@@ -24,6 +22,8 @@ void IOInterface::putConsole(string OutputMessage) {
 
 string IOInterface::getConsole() {
 	string InputMessage;
+//	cout << "IOInterface getConsole" << endl;
 	cin >> InputMessage;
+//	cout << "IOInterface getConsole result " << InputMessage << endl;
 	return(InputMessage);
 }

@@ -8,6 +8,7 @@
 #ifndef IOINTERFACE_H_
 #define IOINTERFACE_H_
 #include <string>
+#include <iostream>
 using namespace std;
 
 class IOInterface {

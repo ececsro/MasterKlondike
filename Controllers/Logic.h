@@ -3,10 +3,13 @@
 
 #include "Controller.h"
 #include "StartController.h"
+#include "InGameController.h"
+
 #include "..\Models\Game.h"
 
 class Logic {
 	StartController* startController;
+	InGameController* inGameController;
 	Game* actualGame;
 
 public:

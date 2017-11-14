@@ -4,6 +4,7 @@ Logic::Logic() {
 	// TODO Auto-generated constructor stub
 	actualGame = new (Game);
 	startController=new StartController(actualGame);
+	inGameController=new InGameController(actualGame);
 
 }
 
@@ -21,7 +22,7 @@ Controller* Logic::getNextController() {
 		break;
 	case GameStatus::IN_GAME:
 		//TODO LOGIC GAMESTATUS IN_GAME
-		return (nullptr);
+		return (inGameController);
         break;
 	case GameStatus::FINISH:
 		//TODO LOGIC GAMESTATUS FINISH

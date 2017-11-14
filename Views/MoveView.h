@@ -1,9 +1,9 @@
 #ifndef MASTERKLONDIKE_VIEWS_MOVEVIEW_H_
 #define MASTERKLONDIKE_VIEWS_MOVEVIEW_H_
 
-#include "KlondikeConsoleView.h"
+#include "InGameView.h"
 
-class MoveView: public KlondikeConsoleView {
+class MoveView: public InGameView {
 public:
 	MoveView();
 	virtual ~MoveView();
