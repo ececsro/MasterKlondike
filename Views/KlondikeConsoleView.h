@@ -6,6 +6,7 @@
 #include "../Controllers/ControllerVisitor.h"
 #include "../Controllers/StartController.h"
 #include "../Controllers/InGameController.h"
+#include "../Controllers/MoveController.h"
 #include "../Utils/IOInterface.h"
 #include "../Utils/AllowedDialog.h"
 
@@ -20,6 +21,7 @@ public:
 	void interact(Controller*);
 	virtual void accept(StartController*);
 	virtual void accept(InGameController*);
+	virtual void accept(MoveController*);
 	IOInterface getIOInterface();
 };
 

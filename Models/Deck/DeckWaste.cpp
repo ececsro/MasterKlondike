@@ -1,17 +1,17 @@
-#include "DeckRemain.h"
+#include "DeckWaste.h"
 
-DeckRemain::DeckRemain() {
+DeckWaste::DeckWaste() {
 	// TODO Auto-generated constructor stub
 
 }
 
-DeckRemain::~DeckRemain() {
+DeckWaste::~DeckWaste() {
 	// TODO Auto-generated destructor stub
 }
 
-void DeckRemain::print() {
+void DeckWaste::print() {
 	IOInterface io;
-	io.putConsole("-- Remain --");
+	io.putConsole("-- Waste --");
 
 	for (list<Card>::iterator listPosition = deck.begin(); listPosition != deck.end(); listPosition++ ){
 		listPosition->printCard();
@@ -19,6 +19,6 @@ void DeckRemain::print() {
 
 }
 
-bool DeckRemain::isAllowToMove(Card*) {
+bool DeckWaste::isAllowToMove(Card*) {
 	return (false);
 }

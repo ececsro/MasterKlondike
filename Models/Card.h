@@ -9,10 +9,18 @@
 #define CARD_H_
 
 #include <iostream>
+#include <string>
+#include <assert.h>
+
+#include "CardExtras.h"
+#include "..\Utils\IOInterface.h"
+
 using namespace std;
 
 class Card {
+	CardExtras* cardExtras;
 	int cardId;
+
 	enum SuitType {diamonds, clubs, hearts, spades} Suit;
 	enum ColorType {red, black} Color;
 	string SuitName [4] = {"Diamonds","Clubs","Hearts","Spades"};
@@ -31,9 +39,19 @@ public:
 	void printCard(void);
 	void setCardEligible(bool);
 	void setCardVisible(bool);
-	bool getCardEligible(void);
-	bool getCardVisible(void);
+	bool isCardEligible(void);
+	bool isCardVisible(void);
 	int getCardId(void);
+	bool isEqual (CardExtras*);
+	void setDeck(Deck*);
+	Deck* getDeck(void);
+
+	int compareNumberName(string);
+	int compareColor(Card*);
+
+	int getSuit(void);
+	string getNumberName();
+
 };
 
 #endif /* CARD_H_ */

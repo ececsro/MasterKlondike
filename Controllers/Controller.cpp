@@ -5,12 +5,15 @@ Controller::~Controller() {
 
 }
 
-Controller::Controller(Game* gameParam) {
+Controller::Controller(Game* gameParam, Board* boardParam) {
 	gameOptions = GameOptions::getInstance();
 
 	actualGame = gameParam;
+	actualBoard = boardParam;
 
+/*
 	deckRemain = new DeckRemain();
+	deckWaste = new DeckWaste();
 
 	DeckTableu* deckTableuAux;
 	tableu.reserve(NUM_OF_COLUMNS);
@@ -19,8 +22,13 @@ Controller::Controller(Game* gameParam) {
 		tableu.push_back(deckTableuAux);
 		tableu.at(i)->setPosition(i);
 	}
+*/
 }
 
 void Controller::setGameStatus(GameStatus newGameStatus) {
 	actualGame->setStatus(newGameStatus);
+}
+
+Board* Controller::getBoard() {
+	return (actualBoard);
 }

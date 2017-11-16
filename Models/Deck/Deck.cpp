@@ -37,22 +37,41 @@ void Deck::setDeck(list<Card> & givenDeck) {
  */
 }
 
-void Deck::emplaceBackDeck(Card newCard) {
-	deck.emplace_back(newCard);
+void Deck::emplaceBackDeck(Card* newCard) {
+	deck.emplace_back(*newCard);
+	newCard->setDeck(this);
 }
 
 Card* Deck::backCard() {
-//	list<Card>::iterator lastCard;
-//	lastCard = deck.end();
-//	--lastCard;
-//	return (*lastCard);
 	return (&(*(--(deck.end()))));
 }
 
-void Deck::pushBackCard(Card newCard) {
-	deck.push_back(newCard);
+void Deck::pushBackCard(Card* newCard) {
+	deck.push_back(*newCard);
+	newCard->setDeck(this);
 }
 
 void Deck::popCard() {
 	deck.pop_back();
+}
+
+bool Deck::isEmpty() {
+	return (deck.empty());
+}
+
+Card* Deck::findCard (CardExtras* cardToFind) {
+
+	list<Card>::iterator listPosition;
+
+	listPosition = deck.begin();
+	while (listPosition != deck.end() && !listPosition->isEqual(cardToFind)){
+		listPosition++;
+	}
+
+	if (listPosition != deck.end()){
+		return (&(*(listPosition)));
+	}
+	else {
+		return (nullptr);
+	}
 }

@@ -4,13 +4,17 @@
 #include "Controller.h"
 #include "StartController.h"
 #include "InGameController.h"
+#include "MoveController.h"
 
-#include "..\Models\Game.h"
+#include "../Models/Game.h"
+#include "../Models/Board.h"
 
 class Logic {
 	StartController* startController;
 	InGameController* inGameController;
+	MoveController* moveController;
 	Game* actualGame;
+	Board* actualBoard;
 
 public:
 	Logic();

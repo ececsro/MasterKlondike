@@ -7,12 +7,6 @@
 
 #include "Card.h"
 
-#include "..\Utils\IOInterface.h"
-#include <string>
-#include <iostream>
-#include <assert.h>
-using namespace std;
-
 Card::Card() {
 	NumOfCards=52;
 	cardId=NumOfCards;
@@ -22,6 +16,7 @@ Card::Card(int CardIdParam) {
 
 	NumOfCards=52;
 	cardId=CardIdParam;
+	cardExtras = new CardExtras();
     setInitialValues();
 
 }
@@ -64,13 +59,14 @@ void Card::setCardName(void) {
 
 	int numberDigits=(cardId - ((this->NumOfCards/4)*Suit));
 	CardName=NumberName[numberDigits] + " " + SuitName[Suit];
+    this->cardExtras->setCardName(CardName);
 
 }
 
 void Card::printCard(void) {
 
 	string OutputString;
-	OutputString = "CardName " + to_string(cardId) + ": " + CardName;
+	OutputString = "CardName " + to_string(cardId) + ": " + this->cardExtras->getCardName();
     if (isVisible){
     	OutputString = OutputString + " IS VISIBLE";
     }
@@ -91,14 +87,45 @@ void Card::setCardVisible(bool visible) {
 	isVisible=visible;
 }
 
-bool Card::getCardEligible(void) {
+bool Card::isCardEligible(void) {
 	return (isEligible);
 }
 
-bool Card::getCardVisible(void) {
+bool Card::isCardVisible(void) {
 	return (isVisible);
 }
 
 int Card::getCardId(void) {
 	return (cardId);
+}
+
+bool Card::isEqual(CardExtras* cardToCompare) {
+	return (this->cardExtras->isEqual(cardToCompare));
+}
+
+void Card::setDeck(Deck* deckWhereCardIs) {
+	this->cardExtras->setDeck(deckWhereCardIs);
+}
+
+Deck* Card::getDeck(void) {
+	return (this->cardExtras->getDeck());
+}
+
+int Card::compareNumberName(string nameNumberToCompare) {
+	CardExtras* cardExtraAux = new CardExtras(nameNumberToCompare);
+
+	return (this->cardExtras->compareNumber(cardExtraAux));
+}
+
+int Card::getSuit(void) {
+	return (this->cardExtras->getSuit());
+}
+
+int Card::compareColor(Card* cardToCompare) {
+	return (this->cardExtras->compareColor(cardToCompare->cardExtras));
+}
+
+string Card::getNumberName() {
+	return (this->cardExtras->getNumberName());
+
 }

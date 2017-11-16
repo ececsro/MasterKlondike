@@ -14,7 +14,8 @@ InGameView::InGameView(InGameController* controllerFromView) {
 	string nextMove;
 	ioConsole.putConsole("Allowed Orders:");
 	ioConsole.putConsole(" 1 - END");
-	ioConsole.putConsole(" 2 - Get Card from Remain Deck");
+	ioConsole.putConsole(" 2 - Get Card from Remain to Waste Deck");
+	ioConsole.putConsole("     ( Refill Remain deck if empty )");
 	ioConsole.putConsole(" 3 - Move Card");
 	AllowedDialog dialog;
 	nextMove=dialog.getOrderInGame(&ioConsole);
@@ -26,9 +27,13 @@ InGameView::InGameView(InGameController* controllerFromView) {
 		controllerFromView->finishGame();
 		break;
 	case 2:
-
+		controllerFromView->showCardFromRemain();
+		controllerFromView->setGameStatus(GameStatus::IN_GAME);
+		controllerFromView->getBoard()->printBoard();
 		break;
 	case 3:
+		// start MoveView
+		controllerFromView->setGameStatus(GameStatus::MOVE);
 		break;
 	default:
 		;

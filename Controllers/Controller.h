@@ -10,29 +10,32 @@ class ControllerVisitor;
 
 #include "../Models/Deck/DeckRemain.h"
 #include "../Models/Deck/DeckTableu.h"
+#include "../Models/Deck/DeckWaste.h"
 
-//class DeckWaste;
 //class DeckFoundation;
 
 #include "../Models/GameOptions.h"
 #include "../Models/Game.h"
+#include "../Models/Board.h"
 
 class Controller {
 
 protected:
 	GameOptions* gameOptions;
 	DeckRemain* deckRemain;
+	DeckWaste* deckWaste;
 	vector <DeckTableu*> tableu;
 	Game* actualGame;
+	Board* actualBoard;
 
-//	DeckWaste *deckWaste;
 //	DeckFoundation **deckFoundation;
 
 public:
 	virtual ~Controller();
-	Controller(Game*);
+	Controller(Game*, Board*);
 	void setGameStatus(GameStatus);
 	virtual void visit(ControllerVisitor* controllerVisitor) =0;
+	Board* getBoard();
 };
 
 #endif /* MASTERKLONDIKE_CONTROLLERS_CONTROLLER_H_ */

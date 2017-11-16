@@ -9,7 +9,7 @@ class StartController: public Controller {
 
 
 public:
-	StartController(Game*);
+	StartController(Game*,Board*);
 	virtual ~StartController();
 	void visit(ControllerVisitor*);
 	void createDeckRemain();

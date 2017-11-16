@@ -25,3 +25,20 @@ void DeckTableu::print() {
 	}
 
 }
+
+bool DeckTableu::isAllowToMove(Card* cardToMove) {
+	bool result = false;
+	if (deck.empty()){
+		if (cardToMove->compareNumberName("King") == 0) {
+			result = true;
+		}
+	}
+	else {
+		if ( deck.back().compareColor(cardToMove) != 0 ) {
+			if ( deck.back().compareNumberName(cardToMove->getNumberName()) > 0 ) {
+				result = true;
+			}
+		}
+	}
+	return (result);
+}

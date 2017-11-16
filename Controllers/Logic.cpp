@@ -1,10 +1,11 @@
 #include "Logic.h"
 
 Logic::Logic() {
-	// TODO Auto-generated constructor stub
 	actualGame = new (Game);
-	startController=new StartController(actualGame);
-	inGameController=new InGameController(actualGame);
+	actualBoard = new (Board);
+	startController=new StartController(actualGame, actualBoard);
+	inGameController=new InGameController(actualGame, actualBoard);
+	moveController=new MoveController(actualGame, actualBoard);
 
 }
 
@@ -21,8 +22,11 @@ Controller* Logic::getNextController() {
 		return (startController);
 		break;
 	case GameStatus::IN_GAME:
-		//TODO LOGIC GAMESTATUS IN_GAME
 		return (inGameController);
+        break;
+	case GameStatus::MOVE:
+		//TODO LOGIC GAMESTATUS IN_GAME
+		return (moveController);
         break;
 	case GameStatus::FINISH:
 		//TODO LOGIC GAMESTATUS FINISH

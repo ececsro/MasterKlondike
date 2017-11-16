@@ -17,10 +17,13 @@ public:
 	Deck();
 	virtual ~Deck();
 	void setDeck(list<Card> &);
-	void emplaceBackDeck(Card);
+	void emplaceBackDeck(Card*);
 	Card* backCard();
-	void pushBackCard(Card);
+	void pushBackCard(Card*);
 	void popCard();
+	bool isEmpty();
+	Card* findCard(CardExtras*);
+	virtual bool isAllowToMove(Card* cardToMove) =0;
 };
 
 #endif /* MASTERKLONDIKE_MODELS_DECK_DECK_H_ */

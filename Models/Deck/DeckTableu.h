@@ -11,6 +11,8 @@ public:
 	void setPosition(int);
 	int getPosition(void);
 	void print(void);
+	bool isAllowToMove(Card* );
+
 };
 
 #endif /* MASTERKLONDIKE_MODELS_DECK_DECKTABLEU_H_ */

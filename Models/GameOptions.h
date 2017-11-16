@@ -6,6 +6,7 @@
 
 class GameOptions {
 	int numOfCards;
+	int numOfCardsToShowFromRemain;
 	static GameOptions* _instance;
 
 private:
