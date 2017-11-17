@@ -1,12 +1,6 @@
-/*
- * Klondike.cpp
- *
- *  Created on: 14 oct. 2017
- *      Author: ECECSRO
- */
-
 #include "Klondike.h"
-#include "Board.h"
+
+#include "Controllers/controller.h"
 
 Klondike::Klondike() {
 
@@ -20,8 +14,13 @@ Klondike::~Klondike() {
 
 
 void Klondike::play() {
-  Board board;
-  board.startPlay();
-  board.play();
+	Controller* nextController;
+	do {
+		nextController = logic.getNextController();
+		if (nextController != nullptr) {
+			klondikeView.interact(nextController);
+		}
+	} while (nextController != nullptr);
+
 };
 
