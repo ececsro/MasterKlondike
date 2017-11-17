@@ -51,7 +51,7 @@ bool AllowedDialog::validateOrder(string& orderToValidate) {
 	bool result;
 	int numberToValidate = std::stoi(orderToValidate);
 	switch (numberToValidate) {
-		case 1:
+		case 4:
 		case 2:
 		case 3:
 			result=true;

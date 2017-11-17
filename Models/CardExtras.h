@@ -26,6 +26,7 @@ class CardExtras {
 public:
 	CardExtras();
 	CardExtras(string);
+	CardExtras(int);
 	virtual ~CardExtras();
 	void setCardName(string);
 	string getCardName (void);

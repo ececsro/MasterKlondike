@@ -20,16 +20,14 @@ void DeckTableu::print() {
 	IOInterface io;
 	io.putConsole("-- Tableu " + to_string(tableuPosition + 1) + " --");
 
-	for (list<Card>::iterator listPosition = deck.begin(); listPosition != deck.end(); listPosition++ ){
-		listPosition->printCard();
-	}
+	this->printDeck();
 
 }
 
 bool DeckTableu::isAllowToMove(Card* cardToMove) {
 	bool result = false;
 	if (deck.empty()){
-		if (cardToMove->compareNumberName("King") == 0) {
+		if (cardToMove->compareNumberCard(12) == 0) {
 			result = true;
 		}
 	}

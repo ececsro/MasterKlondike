@@ -75,3 +75,9 @@ Card* Deck::findCard (CardExtras* cardToFind) {
 		return (nullptr);
 	}
 }
+
+void Deck::printDeck(void) {
+	for (list<Card>::iterator listPosition = deck.begin(); listPosition != deck.end(); listPosition++ ){
+		listPosition->printCard();
+	}
+}

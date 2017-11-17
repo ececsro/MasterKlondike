@@ -9,7 +9,6 @@ public:
 	virtual ~DeckWaste();
 	void print();
 	bool isAllowToMove(Card* );
-
 };
 
 #endif /* MASTERKLONDIKE_MODELS_DECK_DECKWASTE_H_ */

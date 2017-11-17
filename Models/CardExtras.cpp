@@ -5,6 +5,10 @@ CardExtras::CardExtras() {
 
 }
 
+CardExtras::CardExtras(int cardNumberToCreate) {
+	cardNumber = cardNumberToCreate;
+}
+
 CardExtras::CardExtras(string cardName) {
 	this->setCardName(cardName);
 }
@@ -16,7 +20,7 @@ CardExtras::~CardExtras() {
 void CardExtras::setCardName(string newCardName) {
 	cardName = newCardName;
 
-	cardNumberName = newCardName.substr( 0 , newCardName.find_first_of(" "));
+	cardNumberName = cardName.substr( 0 , newCardName.find_first_of(" "));
 
 	size_t position = string::npos;
 	unsigned i=0;
@@ -31,8 +35,8 @@ void CardExtras::setCardName(string newCardName) {
 		assert (false);
 	}
 
+	string suitNameAux = cardName.substr( (newCardName.find_first_of(" ")));
 
-	string suitNameAux = newCardName.substr( (newCardName.find_first_of(" ")) + 1 );
 
 	position = string::npos;
 	i = 0;

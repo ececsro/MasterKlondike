@@ -75,9 +75,12 @@ void Card::printCard(void) {
     	OutputString = OutputString + " AND ELIGIBLE";
     }
 
-	IOInterface ioTmp;
-	ioTmp.putConsole(OutputString);
+    if (isVisible) {
+    	IOInterface ioTmp;
+    	ioTmp.putConsole(OutputString);
+    }
 }
+
 
 void Card::setCardEligible(bool eligible) {
 	isEligible=eligible;
@@ -123,6 +126,11 @@ int Card::getSuit(void) {
 
 int Card::compareColor(Card* cardToCompare) {
 	return (this->cardExtras->compareColor(cardToCompare->cardExtras));
+}
+
+int Card::compareNumberCard(int numberCardToCompare) {
+	CardExtras* cardExtraAux = new CardExtras(numberCardToCompare);
+	return (this->cardExtras->compareNumber(cardExtraAux));
 }
 
 string Card::getNumberName() {

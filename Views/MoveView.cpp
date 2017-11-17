@@ -22,9 +22,14 @@ MoveView::MoveView(MoveController* moveController) {
 
     string placeToMove=dialog.getPlaceToMove(&ioConsole);
 
+    ioConsole.putConsole(" LUIS ---- VERSION NO COMPLETADA. ME FALTA MOVER DE VERDAD. ");
+    ioConsole.putConsole("           CHEQUEO SI EL MOVIMIENTO ES PERMITIDO, PERO SOLO ESO");
+    ioConsole.putConsole(" PRINCIPIO DE ESTADOS INTERMEDIOS ESTABLES , METODOLOGIAS ITERACTIVAS ;-)");
+
 	if (!moveController->moveCard(cardName, placeToMove)){
 		ioConsole.putConsole("Card movement not allowed");
+	}
+	else{
+		ioConsole.putConsole("Card movement is allowed");
 	};
-
-	moveController->setGameStatus(GameStatus::IN_GAME);
 }

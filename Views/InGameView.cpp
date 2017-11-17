@@ -13,7 +13,7 @@ InGameView::InGameView(InGameController* controllerFromView) {
 	assert (controllerFromView!=nullptr);
 	string nextMove;
 	ioConsole.putConsole("Allowed Orders:");
-	ioConsole.putConsole(" 1 - END");
+	ioConsole.putConsole(" 4 - END");
 	ioConsole.putConsole(" 2 - Get Card from Remain to Waste Deck");
 	ioConsole.putConsole("     ( Refill Remain deck if empty )");
 	ioConsole.putConsole(" 3 - Move Card");
@@ -22,7 +22,7 @@ InGameView::InGameView(InGameController* controllerFromView) {
 
     int numNextMove = std::stoi(nextMove);
 	switch (numNextMove) {
-	case 1:
+	case 4:
 		ioConsole.putConsole("The game will be finished");
 		controllerFromView->finishGame();
 		break;

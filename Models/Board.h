@@ -26,6 +26,7 @@ class Board {
 
 protected:
 	Card* findCard(string);
+	Deck* findDeck(string);
 
 public:
 	Board();
@@ -33,6 +34,9 @@ public:
 	bool isCardEligible(string);
 	void printBoard();
 	bool checkToMove(string, string);
+	void moveCards(string, string);
+
+
 };
 
 #endif /* BOARD_H_ */

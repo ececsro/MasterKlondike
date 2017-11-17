@@ -9,7 +9,6 @@ public:
 	virtual ~DeckRemain();
 	void print();
 	bool isAllowToMove(Card* );
-
 };
 
 #endif /* MASTERKLONDIKE_MODELS_DECK_DECKREMAIN_H_ */

@@ -13,6 +13,8 @@ protected:
 	list<Card> deck;
     Card* lastCard;
 
+    void printDeck(void);
+
 public:
 	Deck();
 	virtual ~Deck();

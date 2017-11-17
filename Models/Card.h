@@ -46,6 +46,7 @@ public:
 	void setDeck(Deck*);
 	Deck* getDeck(void);
 
+	int compareNumberCard(int);
 	int compareNumberName(string);
 	int compareColor(Card*);
 

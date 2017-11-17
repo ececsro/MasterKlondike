@@ -81,10 +81,29 @@ bool Board::isCardEligible(string cardName) {
 bool Board::checkToMove(string cardName, string placeToMove) {
 
 	bool result = false;
+
+	Deck* deckToMove = this->findDeck(placeToMove);
+	Card* cardFound = this->findCard(cardName);
+
+    if (cardFound->isCardEligible()) {
+    	result = deckToMove->isAllowToMove(cardFound);
+    }
+    return (result);
+}
+
+void Board::moveCards(string cardName, string placeToMove) {
+
+	Card* cardFound = this->findCard(cardName);
+	Deck* deckToMove = this->findDeck(placeToMove);
+
+	list<Card>* cardsToMove;
+
+}
+
+Deck* Board::findDeck(string placeToMove) {
+	Deck* deckToMove = nullptr;
+
 	int deckIndex=0;
-
-	Deck* deckToMove;
-
 	switch (placeToMove.front()) {
 	case '7':
 		deckIndex++;
@@ -114,15 +133,5 @@ bool Board::checkToMove(string cardName, string placeToMove) {
 		assert (false);
 	}
 
-
-/*	if (!deckToMove->isEmpty()){
-		deckToMove->backCard()->printCard();
-	}
-*/
-	Card* cardFound = this->findCard(cardName);
-    if (cardFound->isCardEligible()) {
-    	result = deckToMove->isAllowToMove(cardFound);
-    }
-
-    return (result);
+	return (deckToMove);
 }

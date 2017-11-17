@@ -20,16 +20,14 @@ void DeckFoundation::print() {
 	IOInterface io;
 	io.putConsole("-- Foundatation " + to_string(foundationSuit) + " --");
 
-	for (list<Card>::iterator listPosition = deck.begin(); listPosition != deck.end(); listPosition++ ){
-		listPosition->printCard();
-	}
+	this->printDeck();
 }
 
 bool DeckFoundation::isAllowToMove(Card* cardToMove) {
 	bool result = false;
 	if (cardToMove->getSuit() == this->foundationSuit) {
 		if (deck.empty()){
-			if (cardToMove->compareNumberName("Ace") == 0) {
+			if (cardToMove->compareNumberCard(0) == 0) {
 				result = true;
 			}
 		}

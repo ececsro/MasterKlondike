@@ -13,9 +13,7 @@ void DeckWaste::print() {
 	IOInterface io;
 	io.putConsole("-- Waste --");
 
-	for (list<Card>::iterator listPosition = deck.begin(); listPosition != deck.end(); listPosition++ ){
-		listPosition->printCard();
-	}
+	this->printDeck();
 
 }
 
