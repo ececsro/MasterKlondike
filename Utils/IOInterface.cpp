@@ -15,7 +15,7 @@ IOInterface::IOInterface() {
 }
 
 IOInterface::~IOInterface() {
-	// TODO Auto-generated destructor stub
+	
 }
 
 void IOInterface::putConsole(string OutputMessage) {
