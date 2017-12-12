@@ -18,7 +18,7 @@ using namespace std;
 class Board {
 	friend class StartController;
 	friend class InGameController;
-	IOInterface io;
+	IOInterface* io;
 	DeckRemain* deckRemain;
 	DeckWaste* deckWaste;
 	vector <DeckTableu*> tableu;

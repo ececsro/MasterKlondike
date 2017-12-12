@@ -23,7 +23,7 @@ void Deck::setDeck(list<Card> & givenDeck) {
         copyCardId = listPosition->getCardId();
 
     	OutputString = "CardId: " + to_string(copyCardId);
-    	ioTmp.putConsole(OutputString);
+    	ioTmp->putConsole(OutputString);
 
         this->deck.emplace_back(copyCardId);
 	}

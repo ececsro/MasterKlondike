@@ -13,7 +13,7 @@
 class KlondikeConsoleView: public ControllerVisitor {
 
 protected:
-    IOInterface ioConsole;
+    IOInterface* ioConsole;
 
 public:
 	KlondikeConsoleView();
@@ -22,7 +22,6 @@ public:
 	virtual void accept(StartController*);
 	virtual void accept(InGameController*);
 	virtual void accept(MoveController*);
-	IOInterface getIOInterface();
 };
 
 #endif /* MASTERKLONDIKE_VIEWS_KLONDIKECONSOLEVIEW_H_ */

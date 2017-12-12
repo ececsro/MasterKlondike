@@ -10,8 +10,8 @@ DeckWaste::~DeckWaste() {
 }
 
 void DeckWaste::print() {
-	IOInterface io;
-	io.putConsole("-- Waste --");
+	IOInterface* io = IOInterface::getInstance();
+	io->putConsole("-- Waste --");
 
 	this->printDeck();
 

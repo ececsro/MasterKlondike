@@ -5,6 +5,7 @@
 
 KlondikeConsoleView::KlondikeConsoleView() {
 	// TODO Auto-generated constructor stub
+	ioConsole = IOInterface::getInstance();
 }
 
 KlondikeConsoleView::~KlondikeConsoleView() {
@@ -30,8 +31,4 @@ void KlondikeConsoleView::accept(InGameController* inGameController) {
 void KlondikeConsoleView::accept(MoveController* moveController) {
 	assert (moveController!=nullptr);
     new MoveView(moveController);
-}
-
-IOInterface KlondikeConsoleView::getIOInterface() {
-	return this->ioConsole;
 }

@@ -12,6 +12,6 @@ Main::~Main() {
 
 int main (void)
 {
-    Klondike klondike;
+	Klondike klondike;
 	klondike.play();
 }

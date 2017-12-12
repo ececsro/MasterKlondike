@@ -10,8 +10,8 @@ DeckRemain::~DeckRemain() {
 }
 
 void DeckRemain::print() {
-	IOInterface io;
-	io.putConsole("-- Remain --");
+	IOInterface* io = IOInterface::getInstance();
+	io->putConsole("-- Remain --");
 
 	this->printDeck();
 

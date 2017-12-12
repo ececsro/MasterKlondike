@@ -3,11 +3,13 @@
 
 #include "Controllers/Logic.h"
 #include "Views/KlondikeConsoleView.h"
+#include "Views/Menu.h"
 
 class Klondike {
 	Logic logic;
     KlondikeConsoleView klondikeView;
 
+    Board* board;
 public:
 	Klondike();
 	virtual ~Klondike();

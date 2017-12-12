@@ -76,8 +76,8 @@ void Card::printCard(void) {
     }
 
     if (isVisible) {
-    	IOInterface ioTmp;
-    	ioTmp.putConsole(OutputString);
+    	IOInterface* ioTmp = IOInterface::getInstance();
+    	ioTmp->putConsole(OutputString);
     }
 }
 

@@ -17,8 +17,8 @@ int DeckFoundation::getFoundation(void) {
 }
 
 void DeckFoundation::print() {
-	IOInterface io;
-	io.putConsole("-- Foundatation " + to_string(foundationSuit) + " --");
+	IOInterface* io = IOInterface::getInstance();
+	io->putConsole("-- Foundatation " + to_string(foundationSuit) + " --");
 
 	this->printDeck();
 }

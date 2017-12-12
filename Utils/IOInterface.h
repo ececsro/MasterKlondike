@@ -12,11 +12,14 @@
 using namespace std;
 
 class IOInterface {
-public:
+	static IOInterface* instance;
+protected:
 	IOInterface();
+public:
 	virtual ~IOInterface();
 	void putConsole(string);
 	string getConsole();
+	static IOInterface* getInstance();
 };
 
 #endif /* IOINTERFACE_H_ */

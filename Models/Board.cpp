@@ -9,6 +9,7 @@
 
 
 Board::Board() {
+	io = IOInterface::getInstance();
 	deckRemain = new DeckRemain();
 	deckWaste = new DeckWaste();
 

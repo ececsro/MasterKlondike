@@ -17,8 +17,8 @@ int DeckTableu::getPosition(void) {
 }
 
 void DeckTableu::print() {
-	IOInterface io;
-	io.putConsole("-- Tableu " + to_string(tableuPosition + 1) + " --");
+	IOInterface* io = IOInterface::getInstance();
+	io->putConsole("-- Tableu " + to_string(tableuPosition + 1) + " --");
 
 	this->printDeck();
 

@@ -14,13 +14,21 @@ Klondike::~Klondike() {
 
 
 void Klondike::play() {
-	Controller* nextController;
+/*	Controller* nextController;
 	do {
 		nextController = logic.getNextController();
 		if (nextController != nullptr) {
 			klondikeView.interact(nextController);
 		}
 	} while (nextController != nullptr);
+*/
+
+	menu::Menu* mainMenu = new menu::Menu();
+
+	do {
+			mainMenu->execute(board);
+		}
+	while (mainMenu->isInGame() == true);
 
 };
 
