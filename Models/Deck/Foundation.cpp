@@ -1,29 +1,37 @@
-#include "DeckFoundation.h"
+#include "Foundation.h"
 
-DeckFoundation::DeckFoundation() {
+Foundation::Foundation() {
 	// TODO Auto-generated constructor stub
 }
 
-DeckFoundation::~DeckFoundation() {
+Foundation::~Foundation() {
 	// TODO Auto-generated destructor stub
 }
 
-void DeckFoundation::setFoundation(int foundation) {
+void Foundation::setFoundation(int foundation) {
 	foundationSuit=foundation;
 }
 
-int DeckFoundation::getFoundation(void) {
+int Foundation::getFoundation(void) {
 	return (foundationSuit);
 }
 
-void DeckFoundation::print() {
+void Foundation::setPosition(int foundation) {
+	foundationSuit=foundation;
+}
+
+int Foundation::getPosition(void) {
+	return (foundationSuit);
+}
+
+void Foundation::print() {
 	IOInterface* io = IOInterface::getInstance();
 	io->putConsole("-- Foundatation " + to_string(foundationSuit) + " --");
 
 	this->printDeck();
 }
 
-bool DeckFoundation::isAllowToMove(Card* cardToMove) {
+bool Foundation::isAllowToMove(Card* cardToMove) {
 	bool result = false;
 	if (cardToMove->getSuit() == this->foundationSuit) {
 		if (deck.empty()){

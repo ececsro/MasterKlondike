@@ -5,7 +5,13 @@
 #include <string>
 using namespace std;
 
+#include "StartSubject.h"
+#include "StartObserver.h"
+
 namespace command {
+
+//class StartSubject;
+//class StartObserver;
 
 class Command {
 
@@ -14,16 +20,21 @@ class Command {
 protected:
 	string Title;
 	unordered_set<string> ValidOptions;
+	bool commandActiveState;
 
 public:
 	Command();
 	virtual ~Command();
 	virtual void execute() = 0;
-	virtual bool isValidOption(string);
 	virtual Command* getCommandByOption(string);
 	virtual bool isInGame(void);
 	string getTitle();
 	void setNextCommand(Command*);
+	virtual Command* clone(void) const = 0;
+	virtual bool isCommandActive(void);
+
+	virtual void attachTo(Command*);
+	virtual void afterExecutionMenu(void) = 0;
 };
 
 } /* namespace command */

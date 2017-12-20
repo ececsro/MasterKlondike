@@ -1,22 +1,22 @@
-#include "DeckTableu.h"
+#include "Tableu.h"
 
-DeckTableu::DeckTableu() {
+Tableu::Tableu() {
 	// TODO Auto-generated constructor stub
 }
 
-DeckTableu::~DeckTableu() {
+Tableu::~Tableu() {
 	// TODO Auto-generated destructor stub
 }
 
-void DeckTableu::setPosition(int position) {
+void Tableu::setPosition(int position) {
 	tableuPosition=position;
 }
 
-int DeckTableu::getPosition(void) {
+int Tableu::getPosition(void) {
 	return (tableuPosition);
 }
 
-void DeckTableu::print() {
+void Tableu::print() {
 	IOInterface* io = IOInterface::getInstance();
 	io->putConsole("-- Tableu " + to_string(tableuPosition + 1) + " --");
 
@@ -24,7 +24,7 @@ void DeckTableu::print() {
 
 }
 
-bool DeckTableu::isAllowToMove(Card* cardToMove) {
+bool Tableu::isAllowToMove(Card* cardToMove) {
 	bool result = false;
 	if (deck.empty()){
 		if (cardToMove->compareNumberCard(12) == 0) {

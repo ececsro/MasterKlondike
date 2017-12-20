@@ -8,7 +8,7 @@ MoveView::~MoveView() {
 	// TODO Auto-generated destructor stub
 }
 
-MoveView::MoveView(MoveController* moveController) {
+MoveView::MoveView(OldMoveController* moveController) {
 	ioConsole->putConsole("Enter Name and Suit of the card you want to move:");
 	ioConsole->putConsole(" Examples: 5 Diamonds, Ace Clubs , 3 Hearts or Jack Spades");
 	AllowedDialog dialog;

@@ -4,9 +4,9 @@
 #include <assert.h>
 
 #include "../Controllers/ControllerVisitor.h"
-#include "../Controllers/StartController.h"
-#include "../Controllers/InGameController.h"
-#include "../Controllers/MoveController.h"
+#include "../Controllers/InGameOldController.h"
+#include "../Controllers/OldMoveController.h"
+#include "../Controllers/OldStartOldController.h"
 #include "../Utils/IOInterface.h"
 #include "../Utils/AllowedDialog.h"
 
@@ -18,10 +18,10 @@ protected:
 public:
 	KlondikeConsoleView();
 	virtual ~KlondikeConsoleView();
-	void interact(Controller*);
-	virtual void accept(StartController*);
+	void interact(OldController*);
+	virtual void accept(OldStartController*);
 	virtual void accept(InGameController*);
-	virtual void accept(MoveController*);
+	virtual void accept(OldMoveController*);
 };
 
 #endif /* MASTERKLONDIKE_VIEWS_KLONDIKECONSOLEVIEW_H_ */

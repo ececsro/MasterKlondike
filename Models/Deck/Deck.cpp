@@ -12,29 +12,6 @@ Deck::~Deck() {
 
 void Deck::setDeck(list<Card> & givenDeck) {
     deck = givenDeck;
-
-//	deck.splice(deck.begin(),givenDeck,givenDeck.begin(),givenDeck.end());
-
-/*	int copyCardId;
-	IOInterface ioTmp;
-	string OutputString;
-	for (list<Card>::iterator listPosition = givenDeck.begin(); listPosition != givenDeck.end(); listPosition++ ){
-        listPosition->printCard();
-        copyCardId = listPosition->getCardId();
-
-    	OutputString = "CardId: " + to_string(copyCardId);
-    	ioTmp->putConsole(OutputString);
-
-        this->deck.emplace_back(copyCardId);
-	}
-
-	for (list<Card>::iterator listPosition = deck.begin(); listPosition != deck.end(); listPosition++ ){
-        listPosition->printCard();
-//        deck.push_back(newCardToDeck);
-	}
-
-//	*deck.assign(*givenDeck);
- */
 }
 
 void Deck::emplaceBackDeck(Card* newCard) {
@@ -80,4 +57,26 @@ void Deck::printDeck(void) {
 	for (list<Card>::iterator listPosition = deck.begin(); listPosition != deck.end(); listPosition++ ){
 		listPosition->printCard();
 	}
+}
+
+bool Deck::isAllowToMove(Card* cardToMove) {
+
+	return false;
+}
+
+void Deck::Add(Deck*) {
+}
+
+Deck* Deck::getComposite() {
+	return nullptr;
+}
+
+Deck* Deck::getDeck(int int1) {
+	return nullptr;
+}
+
+void Deck::print(void) {
+}
+
+void Deck::setPosition(int int1) {
 }

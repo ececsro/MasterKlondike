@@ -1,6 +1,8 @@
 #include "MoveController.h"
 
-MoveController::MoveController(Game* gameParam, Board* boardParam) : Controller (gameParam, boardParam) {
+namespace controller {
+
+MoveController::MoveController() {
 	// TODO Auto-generated constructor stub
 
 }
@@ -9,15 +11,12 @@ MoveController::~MoveController() {
 	// TODO Auto-generated destructor stub
 }
 
-void MoveController::visit(ControllerVisitor* controllerVisitor) {
-	controllerVisitor->accept(this);
-}
-
-bool MoveController::moveCard(string cardName, string placeToMove) {
+bool MoveController::moveCard(string cardToMove, string destinationPlace) {
 	bool result=false;
+	Board* board = Board::getInstance();
 
-	if (actualBoard->isCardEligible(cardName)) {
-		if (actualBoard->checkToMove(cardName, placeToMove)) {
+	if (board->isCardEligible(cardToMove)) {
+		if (board->checkToMove(cardToMove, destinationPlace)) {
 			//if the card can be moved, move it
 				// if from Waste:  make sure is the last card in the list.
 								// move to the last position in 'placeToMove'
@@ -27,11 +26,11 @@ bool MoveController::moveCard(string cardName, string placeToMove) {
 								//	'cut' and 'paste' the card and its 'tail of cards' to the new tableu
 								// make visible and or eligible the cards impacted
 
-//			actualBoard->moveCards(cardName, placeToMove);
-//			actualBoard->printBoard();
+//			board->moveCards(cardToMove, destinationPlace);
 			result = true;
 		}
 	}
-	this->setGameStatus(GameStatus::IN_GAME);
 	return (result);
 }
+
+} /* namespace controller */

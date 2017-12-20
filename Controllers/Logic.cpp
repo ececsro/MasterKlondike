@@ -2,10 +2,14 @@
 
 Logic::Logic() {
 	actualGame = new (Game);
-	actualBoard = new (Board);
-	startController=new StartController(actualGame, actualBoard);
+	actualBoard = new (OldBoard);
+//	startController=new OldStartController(actualGame, actualBoard);
 	inGameController=new InGameController(actualGame, actualBoard);
-	moveController=new MoveController(actualGame, actualBoard);
+	moveController=new OldMoveController(actualGame, actualBoard);
+
+	startController=new OldStartController(actualBoard);
+//	inGameController=new InGameController(actualBoard);
+//	moveController=new MoveController(actualBoard);
 
 }
 
@@ -13,7 +17,7 @@ Logic::~Logic() {
 	// TODO Auto-generated destructor stub
 }
 
-Controller* Logic::getNextController() {
+OldController* Logic::getNextController() {
 
 	GameStatus gameStatus =  actualGame->getStatus();
 

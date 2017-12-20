@@ -1,19 +1,20 @@
 #ifndef MASTERKLONDIKE_CONTROLLERS_STARTCONTROLLER_H_
 #define MASTERKLONDIKE_CONTROLLERS_STARTCONTROLLER_H_
 
-#include "ControllerVisitor.h"
 #include "Controller.h"
-#include "../Models/DeckConstructor.h"
+#include "../Models/BoardBuilder.h"
+#include "../Models/DeckBuilder.h"
+
+namespace controller {
 
 class StartController: public Controller {
-
-
 public:
-	StartController(Game*,Board*);
+	StartController();
 	virtual ~StartController();
-	void visit(ControllerVisitor*);
-	void createDeckRemain();
-	void initialDeploy();
+	void createBoard(void);
+	void initialDeploy(void);
 };
+
+} /* namespace controller */
 
 #endif /* MASTERKLONDIKE_CONTROLLERS_STARTCONTROLLER_H_ */

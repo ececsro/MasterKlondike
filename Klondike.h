@@ -9,7 +9,6 @@ class Klondike {
 	Logic logic;
     KlondikeConsoleView klondikeView;
 
-    Board* board;
 public:
 	Klondike();
 	virtual ~Klondike();

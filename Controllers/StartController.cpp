@@ -1,35 +1,34 @@
 #include "StartController.h"
 
-StartController::StartController(Game* gameParam, Board* boardParam) : Controller (gameParam, boardParam) {
-	// TODO Auto-generated constructor stub
+namespace controller {
+
+StartController::StartController() {
 }
 
 StartController::~StartController() {
-	// TODO Auto-generated destructor stub
 }
 
-void StartController::visit(ControllerVisitor* controllerVisitor) {
-	controllerVisitor->accept(this);
+void StartController::createBoard(void) {
+	BoardBuilder BoardBuilder;
+	BoardBuilder.construct();
 }
 
-void StartController::createDeckRemain() {
-	DeckConstructor(this->gameOptions, this->actualBoard->deckRemain);
-}
+void StartController::initialDeploy(void) {
+	Board* Board = Board::getInstance();
+	DeckBuilder DeckConstructor;
+	DeckConstructor.construct(Board->getDeck(DeckType::REMAIN));
 
-void StartController::initialDeploy() {
 	unsigned int j;
-	for (unsigned i=0; i < actualBoard->tableu.size(); i++){
-		for (j=i; j < actualBoard->tableu.size(); j++){
-			actualBoard->tableu[j]->emplaceBackDeck(actualBoard->deckRemain->backCard());
-			actualBoard->deckRemain->popCard();
+	for (unsigned i=0; i < (int) TableuType::COUNT ;i++){
+		for (j=i; j < (int) TableuType::COUNT; j++){
+			Board->getDeck(DeckType::TABLEU)->getDeck(j)->emplaceBackDeck(Board->getDeck(DeckType::REMAIN)->backCard());
+			Board->getDeck(DeckType::REMAIN)->popCard();
 			if (j == i){
-				actualBoard->tableu[j]->backCard()->setCardVisible(true);
-				actualBoard->tableu[j]->backCard()->setCardEligible(true);
+				Board->getDeck(DeckType::TABLEU)->getDeck(j)->backCard()->setCardVisible(true);
+				Board->getDeck(DeckType::TABLEU)->getDeck(j)->backCard()->setCardEligible(true);
 			}
 		}
 	}
-
-	this->setGameStatus(GameStatus::IN_GAME);
-
-	actualBoard->printBoard();
 }
+
+} /* namespace controller */

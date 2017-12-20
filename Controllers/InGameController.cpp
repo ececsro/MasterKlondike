@@ -1,6 +1,6 @@
-#include "InGameController.h"
+#include "InGameOldController.h"
 
-InGameController::InGameController(Game* gameParam, Board* boardParam) : Controller (gameParam, boardParam) {
+InGameController::InGameController(Game* gameParam, OldBoard* boardParam) : OldController (boardParam) {
 	// TODO Auto-generated constructor stub
 
 }

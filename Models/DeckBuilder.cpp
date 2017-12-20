@@ -1,27 +1,33 @@
-#include <assert.h>
-#include "DeckConstructor.h"
+#include "DeckBuilder.h"
 
-DeckConstructor::DeckConstructor() {
+#include <assert.h>
+
+DeckBuilder::DeckBuilder() {
 	// TODO Auto-generated constructor stub
 
 }
 
-DeckConstructor::~DeckConstructor() {
+DeckBuilder::~DeckBuilder() {
 	// TODO Auto-generated destructor stub
 }
 
-DeckConstructor::DeckConstructor(GameOptions* gameOptionsParam, Deck* deckInitial) {
-	assert (gameOptionsParam != nullptr);
+DeckBuilder::DeckBuilder(Deck* deckInitial) {
 	assert (deckInitial != nullptr);
-
-	gameOptions = gameOptionsParam;
 
 	createCards();
 	shuffleDeck();
 	deckInitial->setDeck(shuffledDeck);
 }
 
-void DeckConstructor::createCards() {
+void DeckBuilder::construct(Deck* deckInitial) {
+	assert (deckInitial != nullptr);
+
+	createCards();
+	shuffleDeck();
+	deckInitial->setDeck(shuffledDeck);
+}
+
+void DeckBuilder::createCards() {
 
 	int CardId;
 	for (int i=0 ; i < numOfCards ; i++) {
@@ -30,7 +36,7 @@ void DeckConstructor::createCards() {
 	}
 }
 
-void DeckConstructor::shuffleDeck() {
+void DeckBuilder::shuffleDeck() {
  	list<Card>::iterator cardPosition;
 	list<Card> CardsWorkCopy = allCardsInDeck;
 

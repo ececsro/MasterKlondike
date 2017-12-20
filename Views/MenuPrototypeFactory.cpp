@@ -4,14 +4,15 @@ namespace menu {
 
 MenuPrototypeFactory::MenuPrototypeFactory() {
 
+	/*
 	PrototypeExit = new command::ExitCommand();
 	PrototypeMove = new command::MoveCommand();
 	PrototypeStart = new command::StartCommand();
 	PrototypeTouchRemainDeck = new command::TouchRemainDeckCommand();
+	*/
 }
 
 MenuPrototypeFactory::~MenuPrototypeFactory() {
-	// TODO Auto-generated destructor stub
 }
 
 command::Command* MenuPrototypeFactory::makeExit(void) {

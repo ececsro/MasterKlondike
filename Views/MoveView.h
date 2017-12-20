@@ -1,14 +1,14 @@
 #ifndef MASTERKLONDIKE_VIEWS_MOVEVIEW_H_
 #define MASTERKLONDIKE_VIEWS_MOVEVIEW_H_
 
+#include "../Controllers/OldMoveController.h"
 #include "KlondikeConsoleView.h"
-#include "../Controllers/MoveController.h"
 
 class MoveView: public KlondikeConsoleView {
 public:
 	MoveView();
 	virtual ~MoveView();
-	MoveView(MoveController*);
+	MoveView(OldMoveController*);
 
 };
 

@@ -1,42 +1,33 @@
-#ifndef BOARD_H_
-#define BOARD_H_
+#ifndef MASTERKLONDIKE_MODELS_BOARD_H_
+#define MASTERKLONDIKE_MODELS_BOARD_H_
 
-#define NUM_OF_COLUMNS 7
-#define NUM_OF_SUITS 4
-
-#include "../Utils/IOInterface.h"
-
-#include "../Models/Deck/DeckRemain.h"
-#include "../Models/Deck/DeckTableu.h"
-#include "../Models/Deck/DeckWaste.h"
-#include "../Models/Deck/DeckFoundation.h"
-
-#include <iostream>
-using namespace std;
-
+#include "Deck/Deck.h"
+#include "Deck/DeckType.h"
+#include "FoundationType.h"
+#include "TableuType.h"
 
 class Board {
-	friend class StartController;
-	friend class InGameController;
-	IOInterface* io;
-	DeckRemain* deckRemain;
-	DeckWaste* deckWaste;
-	vector <DeckTableu*> tableu;
-	vector <DeckFoundation*> foundation;
+	static Board* instance;
+	vector<Deck*> DeckSet;
 
 protected:
+	Board();
 	Card* findCard(string);
 	Deck* findDeck(string);
 
 public:
-	Board();
 	virtual ~Board();
-	bool isCardEligible(string);
+	static Board* getInstance();
+
+	void setDeck(Deck*, DeckType);
+	Deck* getDeck(DeckType);
+
 	void printBoard();
+
+	bool isCardEligible(string);
 	bool checkToMove(string, string);
 	void moveCards(string, string);
 
-
 };
 
-#endif /* BOARD_H_ */
+#endif /* MASTERKLONDIKE_MODELS_BOARD_H_ */

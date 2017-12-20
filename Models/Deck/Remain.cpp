@@ -1,22 +1,22 @@
-#include "DeckWaste.h"
+#include "Remain.h"
 
-DeckWaste::DeckWaste() {
+Remain::Remain() {
 	// TODO Auto-generated constructor stub
 
 }
 
-DeckWaste::~DeckWaste() {
+Remain::~Remain() {
 	// TODO Auto-generated destructor stub
 }
 
-void DeckWaste::print() {
+void Remain::print(void) {
 	IOInterface* io = IOInterface::getInstance();
-	io->putConsole("-- Waste --");
+	io->putConsole("-- Remain --");
 
 	this->printDeck();
 
 }
 
-bool DeckWaste::isAllowToMove(Card*) {
+bool Remain::isAllowToMove(Card*) {
 	return (false);
 }

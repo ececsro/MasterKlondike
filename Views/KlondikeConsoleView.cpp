@@ -12,13 +12,13 @@ KlondikeConsoleView::~KlondikeConsoleView() {
 	// TODO Auto-generated destructor stub
 }
 
-void KlondikeConsoleView::interact(Controller* controller) {
+void KlondikeConsoleView::interact(OldController* controller) {
 	assert (controller!=nullptr);
 	controller->visit(this);
 
 }
 
-void KlondikeConsoleView::accept(StartController* startController) {
+void KlondikeConsoleView::accept(OldStartController* startController) {
 	assert (startController!=nullptr);
     new StartView(startController);
 }
@@ -28,7 +28,7 @@ void KlondikeConsoleView::accept(InGameController* inGameController) {
     new InGameView(inGameController);
 }
 
-void KlondikeConsoleView::accept(MoveController* moveController) {
+void KlondikeConsoleView::accept(OldMoveController* moveController) {
 	assert (moveController!=nullptr);
     new MoveView(moveController);
 }

@@ -28,12 +28,12 @@ InGameView::InGameView(InGameController* controllerFromView) {
 		break;
 	case 2:
 		controllerFromView->showCardFromRemain();
-		controllerFromView->setGameStatus(GameStatus::IN_GAME);
+
 		controllerFromView->getBoard()->printBoard();
 		break;
 	case 3:
 		// start MoveView
-		controllerFromView->setGameStatus(GameStatus::MOVE);
+		//controllerFromView->setGameStatus(GameStatus::MOVE);
 		break;
 	default:
 		;

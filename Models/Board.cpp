@@ -1,71 +1,82 @@
-/*
- * Board.cpp
- *
- *  Created on: 14 oct. 2017
- *      Author: ECECSRO
- */
-
 #include "Board.h"
 
+Board* Board::instance = nullptr;
 
 Board::Board() {
-	io = IOInterface::getInstance();
-	deckRemain = new DeckRemain();
-	deckWaste = new DeckWaste();
-
-	DeckTableu* deckTableuAux;
-	tableu.reserve(NUM_OF_COLUMNS);
-	for (int i=0 ; i < NUM_OF_COLUMNS ; i++) {
-		deckTableuAux = new DeckTableu;
-		tableu.push_back(deckTableuAux);
-		tableu.at(i)->setPosition(i);
-	}
-
-	DeckFoundation* deckFoundationAux;
-	foundation.reserve(NUM_OF_SUITS);
-	for (int i=0 ; i < NUM_OF_SUITS ; i++) {
-		deckFoundationAux = new DeckFoundation;
-		foundation.push_back(deckFoundationAux);
-		foundation.at(i)->setFoundation(i);
-	}
+	DeckSet.resize((int) DeckType::COUNT);
 }
 
 Board::~Board() {
 	// TODO Auto-generated destructor stub
 }
 
-void Board::printBoard() {
-	this->deckRemain->print();
-    this->deckWaste->print();
-	for (unsigned i=0; i < tableu.size(); i++){
-		tableu[i]->print();
-    }
-	for (unsigned i=0; i < foundation.size(); i++){
-		foundation[i]->print();
-    }
+Board* Board::getInstance() {
+		if (instance == nullptr) {
+			instance = new Board;
+		}
+		return instance;
+}
+
+void Board::setDeck(Deck* DeckParam, DeckType enumDeckType) {
+	DeckSet.at((int) enumDeckType) = DeckParam;
+}
+
+Deck* Board::getDeck(DeckType enumDeckType) {
+	return DeckSet.at((int) enumDeckType);
 }
 
 Card* Board::findCard(string cardName) {
 	CardExtras* cardToCompare = new CardExtras(cardName);
     Card* cardFound = nullptr;
 
-    cardFound = this->deckRemain->findCard(cardToCompare);
+	for ( int i=0; cardFound == nullptr; i++){
+		cardFound=(DeckSet.at(i))->findCard(cardToCompare);
+	}
 
-    if (cardFound == nullptr){
-        cardFound = this->deckWaste->findCard(cardToCompare);
-    }
-
-    unsigned i=0;
-    while (i < tableu.size() && cardFound == nullptr){
-    	cardFound = tableu[i]->findCard(cardToCompare);
-    	i++;
-    }
-    while (i < foundation.size() && cardFound == nullptr){
-    	cardFound = foundation[i]->findCard(cardToCompare);
-    	i++;
-    }
     delete cardToCompare;
     return (cardFound);
+}
+
+Deck* Board::findDeck(string placeToMove) {
+	Deck* deckToMove = nullptr;
+	int foundationId;
+
+	switch (placeToMove.front()) {
+	case '7':
+	case '6':
+	case '5':
+	case '4':
+	case '3':
+	case '2':
+	case '1':
+		deckToMove = this->DeckSet.at((int) DeckType::TABLEU)->getDeck((int) (placeToMove.front() - 1));
+		break;
+	case 'S':
+	    foundationId = (int) FoundationType::SPADES;
+		break;
+	case 'H':
+	    foundationId = (int) FoundationType::HEARTS;
+		break;
+	case 'C':
+	    foundationId = (int) FoundationType::CLUBS;
+		break;
+	case 'D':
+	    foundationId = (int) FoundationType::DIAMONDS;
+		break;
+	default:
+		assert (false);
+	}
+
+	if (deckToMove == nullptr){
+		deckToMove = this->DeckSet.at((int) DeckType::FOUNDATION)->getDeck(foundationId);
+	}
+	return (deckToMove);
+}
+
+void Board::printBoard() {
+	for ( int i=0; i < (int) DeckType::COUNT; i++){
+		(DeckSet.at(i))->print();
+	}
 }
 
 bool Board::isCardEligible(string cardName) {
@@ -98,41 +109,4 @@ void Board::moveCards(string cardName, string placeToMove) {
 	Deck* deckToMove = this->findDeck(placeToMove);
 
 	list<Card>* cardsToMove;
-
-}
-
-Deck* Board::findDeck(string placeToMove) {
-	Deck* deckToMove = nullptr;
-
-	int deckIndex=0;
-	switch (placeToMove.front()) {
-	case '7':
-		deckIndex++;
-	case '6':
-		deckIndex++;
-	case '5':
-		deckIndex++;
-	case '4':
-		deckIndex++;
-	case '3':
-		deckIndex++;
-	case '2':
-		deckIndex++;
-	case '1':
-		deckToMove = tableu[deckIndex];
-		break;
-	case 'S':
-		deckIndex++;
-	case 'H':
-		deckIndex++;
-	case 'C':
-		deckIndex++;
-	case 'D':
-		deckToMove = foundation[deckIndex];
-		break;
-	default:
-		assert (false);
-	}
-
-	return (deckToMove);
 }

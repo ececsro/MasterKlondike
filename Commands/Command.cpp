@@ -12,7 +12,7 @@ Command::~Command() {
 
 Command* Command::getCommandByOption(string Option) {
 
-	if (this->isValidOption(Option)){
+	if (this->ValidOptions.count(Option) != 0 && this->commandActiveState==true){
 		return this;
 	}
 	else if (nextCommand == nullptr) {
@@ -21,10 +21,6 @@ Command* Command::getCommandByOption(string Option) {
 	else {
 		return nextCommand->getCommandByOption(Option);
 	}
-}
-
-bool Command::isValidOption(string Option) {
-	return (ValidOptions.count(Option));
 }
 
 bool Command::isInGame(void) {
@@ -39,4 +35,12 @@ void Command::setNextCommand(Command* newNextCommand) {
 	nextCommand = newNextCommand;
 }
 
+void Command::attachTo(Command* startCommand) {
+}
+
+bool Command::isCommandActive(void) {
+	return this->commandActiveState;
+}
+
 } /* namespace command */
+

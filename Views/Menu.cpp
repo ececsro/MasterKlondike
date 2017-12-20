@@ -6,32 +6,20 @@ Menu::Menu() {
 
 	inGame = true;
 
-/*
- 	command::Command* PreviousCommand, NextCommand;
 
-	PreviousCommand = MenuFactory.makeStart();
+ 	command::Command *startCommand, *auxCommand;
+	startCommand = MenuFactory.makeStart();
 
-	NextCommand = MenuFactory.makeMove();
-	PreviousCommand->setNextCommand(NextCommand);
-	CommandList.push_back(PreviousCommand);
-	PreviousCommand = NextCommand;
+	CommandList.push_back(startCommand);
 
-	NextCommand = MenuFactory.makeRemainDeck();
-	PreviousCommand->setNextCommand(NextCommand);
-	CommandList.push_back(PreviousCommand);
-	PreviousCommand = NextCommand;
+	auxCommand = MenuFactory.makeMove();
+	auxCommand->attachTo(startCommand);
+	CommandList.push_back(auxCommand);
 
-	NextCommand = MenuFactory.makeExit();
-	PreviousCommand->setNextCommand(NextCommand);
-	CommandList.push_back(PreviousCommand);
+	auxCommand = MenuFactory.makeRemainDeck();
+	auxCommand->attachTo(startCommand);
+	CommandList.push_back(auxCommand);
 
-	NextCommand.setNextCommand(nullptr);
-	CommandList.push_back(NextCommand);
-*/
-
-	CommandList.push_back(MenuFactory.makeStart());
-	CommandList.push_back(MenuFactory.makeMove());
-	CommandList.push_back(MenuFactory.makeRemainDeck());
 	CommandList.push_back(MenuFactory.makeExit());
 
 	list<command::Command*>::iterator CommandIt = CommandList.begin();
@@ -48,29 +36,33 @@ Menu::~Menu() {
 	// TODO Auto-generated destructor stub
 }
 
-void Menu::execute(Board* board) {
+void Menu::execute() {
 
 	IOInterface* IOInterface = IOInterface::getInstance();
 	string Option;
-	command::Command* CommandToExecute;
+	command::Command* CommandMenu, *CommandToExecute;
 
 	for (list<command::Command*>::iterator CommandIt = CommandList.begin(); CommandIt != CommandList.end(); CommandIt++ ){
-		IOInterface->putConsole((*CommandIt)->getTitle());
+		if ( (*CommandIt)->isCommandActive() ){
+			IOInterface->putConsole((*CommandIt)->getTitle());
+		}
 	}
 
 	do {
 		Option = IOInterface->getConsole();
-		CommandToExecute = (*CommandList.begin())->getCommandByOption(Option);
-	    if (CommandToExecute == nullptr) {
+//		Option = "S";
+		CommandMenu = (*CommandList.begin())->getCommandByOption(Option);
+	    if (CommandMenu == nullptr) {
 	    	IOInterface->putConsole("Choose a valid option");
 	    }
-	    else {
-	    	IOInterface->putConsole(CommandToExecute->getTitle());
-	    	CommandToExecute->execute();
-	    	inGame = CommandToExecute->isInGame();
-	    }
-	} while (CommandToExecute == nullptr);
+	} while (CommandMenu == nullptr);
 
+	IOInterface->putConsole(CommandMenu->getTitle());
+	CommandToExecute = CommandMenu->clone();
+	CommandToExecute->execute();
+
+	CommandMenu->afterExecutionMenu();
+	inGame = CommandMenu->isInGame();
 }
 
 bool Menu::isInGame(void) {

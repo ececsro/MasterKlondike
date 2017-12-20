@@ -5,12 +5,14 @@
 #include <vector>
 #include "../Card.h"
 #include "..\..\Utils\IOInterface.h"
+#include "DeckType.h"
+
 using namespace std;
 
 class Deck {
 
 protected:
-	list<Card> deck;
+    list<Card> deck;
     Card* lastCard;
 
     void printDeck(void);
@@ -24,8 +26,17 @@ public:
 	void pushBackCard(Card*);
 	void popCard();
 	bool isEmpty();
-	Card* findCard(CardExtras*);
-	virtual bool isAllowToMove(Card* cardToMove) =0;
+	virtual Card* findCard(CardExtras*);
+//	virtual bool isAllowToMove(Card* cardToMove) =0;
+	virtual bool isAllowToMove(Card* cardToMove);
+
+	virtual void Add(Deck*);
+//	virtual void Remove(Deck*);
+	virtual Deck* getComposite();
+	virtual Deck* getDeck(int);
+
+	virtual void print(void);
+	virtual void setPosition(int);
 };
 
 #endif /* MASTERKLONDIKE_MODELS_DECK_DECK_H_ */

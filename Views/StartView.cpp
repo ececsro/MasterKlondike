@@ -9,7 +9,7 @@ StartView::~StartView() {
 	// TODO Auto-generated destructor stub
 }
 
-StartView::StartView(StartController* controllerFromView) {
+StartView::StartView(OldStartController* controllerFromView) {
 	assert (controllerFromView!=nullptr);
 	controllerFromView->createDeckRemain();
 	controllerFromView->initialDeploy();

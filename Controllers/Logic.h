@@ -1,25 +1,24 @@
 #ifndef MASTERKLONDIKE_CONTROLLERS_LOGIC_H_
 #define MASTERKLONDIKE_CONTROLLERS_LOGIC_H_
 
-#include "Controller.h"
-#include "StartController.h"
-#include "InGameController.h"
-#include "MoveController.h"
-
 #include "../Models/Game.h"
-#include "../Models/Board.h"
+#include "../Models/Old_OldBoard.h"
+#include "InGameOldController.h"
+#include "OldController.h"
+#include "OldMoveController.h"
+#include "OldStartOldController.h"
 
 class Logic {
-	StartController* startController;
+	OldStartController* startController;
 	InGameController* inGameController;
-	MoveController* moveController;
+	OldMoveController* moveController;
 	Game* actualGame;
-	Board* actualBoard;
+	OldBoard* actualBoard;
 
 public:
 	Logic();
 	virtual ~Logic();
-	Controller* getNextController();
+	OldController* getNextController();
 };
 
 #endif /* MASTERKLONDIKE_CONTROLLERS_LOGIC_H_ */
