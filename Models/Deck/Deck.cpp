@@ -53,6 +53,18 @@ Card* Deck::findCard (CardExtras* cardToFind) {
 	}
 }
 
+/*
+ list<Card>::iterator findCardIterator(Card* cardToFind) {
+	list<Card>::iterator listPosition;
+	listPosition = deck.begin();
+	while (listPosition != deck.end() && !listPosition->isEqual(cardToFind)){
+		listPosition++;
+	}
+
+	return listPosition;
+}
+*/
+
 void Deck::printDeck(void) {
 	for (list<Card>::iterator listPosition = deck.begin(); listPosition != deck.end(); listPosition++ ){
 		listPosition->printCard();
@@ -79,4 +91,49 @@ void Deck::print(void) {
 }
 
 void Deck::setPosition(int int1) {
+}
+
+void Deck::moveCards(Card*) {
+}
+
+
+
+void Deck::modifyOriginDeck(Card* selectedCard) {
+	list<Card>::iterator listPosition;
+//	listPosition = this->findCardIterator(selectedCard);
+	listPosition = deck.begin();
+	while (listPosition != deck.end() && !listPosition->isEqual(selectedCard)){
+		listPosition++;
+	}
+
+	if (listPosition != deck.begin()){
+		listPosition--;
+		listPosition->setCardEligible(true);
+		listPosition->setCardVisible(true);
+	}
+}
+
+list<Card>* Deck::getCards(Card* selectedCard) {
+	list<Card>::iterator listPosition;
+//	listPosition = this->findCardIterator(selectedCard);
+	listPosition = deck.begin();
+	while (listPosition != deck.end() && !listPosition->isEqual(selectedCard)){
+		listPosition++;
+	}
+
+    list<Card>* transferCards = new list<Card>;
+
+    transferCards->splice(transferCards->begin(),this->deck,listPosition,this->deck.end());
+
+    return transferCards;
+
+}
+
+void Deck::putCards(list<Card>* transferCards) {
+
+	for (list<Card>::iterator listPosition = transferCards->begin(); listPosition != transferCards->end(); listPosition++ ){
+		listPosition->setDeck(this);
+	}
+
+	this->deck.splice(this->deck.end(),*transferCards,transferCards->begin(),transferCards->end());
 }

@@ -1,5 +1,4 @@
 #include "Klondike.h"
-#include "Controllers/controller.h"
 
 Klondike::Klondike() {
 }

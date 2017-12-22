@@ -1,13 +1,10 @@
 #ifndef MASTERKLONDIKE_VIEWS_MENU_H_
 #define MASTERKLONDIKE_VIEWS_MENU_H_
 
-class OldBoard;
-
 #include <list>
 #include "../Commands/Command.h"
 #include "MenuPrototypeFactory.h"
 #include "../Utils/IOInterface.h"
-//#include "../Commands/StartSubject.h"
 
 namespace menu {
 

@@ -24,13 +24,16 @@ Deck* FoundationComp::getDeck(int FoundationPosition) {
 }
 
 void FoundationComp::print(void) {
-	for (int i=0; i < Foundation.size(); i++){
+	for (unsigned i=0; i < Foundation.size(); i++){
 		Foundation.at(i)->print();
 	}
 }
 
 Card* FoundationComp::findCard(CardExtras* cardToFind) {
-	for (int i=0; i < Foundation.size(); i++){
-		Foundation.at(i)->findCard(cardToFind);
+	Card* cardFound = nullptr;
+
+	for (unsigned i=0; i < Foundation.size() && cardFound == nullptr; i++){
+		cardFound = Foundation.at(i)->findCard(cardToFind);
 	}
+	return cardFound;
 }

@@ -14,7 +14,6 @@ MoveController::~MoveController() {
 bool MoveController::moveCard(string cardToMove, string destinationPlace) {
 	bool result=false;
 	Board* board = Board::getInstance();
-
 	if (board->isCardEligible(cardToMove)) {
 		if (board->checkToMove(cardToMove, destinationPlace)) {
 			//if the card can be moved, move it
@@ -26,7 +25,7 @@ bool MoveController::moveCard(string cardToMove, string destinationPlace) {
 								//	'cut' and 'paste' the card and its 'tail of cards' to the new tableu
 								// make visible and or eligible the cards impacted
 
-//			board->moveCards(cardToMove, destinationPlace);
+			board->moveCards(cardToMove, destinationPlace);
 			result = true;
 		}
 	}

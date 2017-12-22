@@ -2,6 +2,7 @@
 #define MASTERKLONDIKE_MODELS_DECK_FOUNDATION_H_
 
 #include "Deck.h"
+#include "../FoundationType.h"
 
 class Foundation: public Deck {
 	int foundationSuit;

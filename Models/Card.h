@@ -43,6 +43,7 @@ public:
 	bool isCardVisible(void);
 	int getCardId(void);
 	bool isEqual (CardExtras*);
+	bool isEqual (Card*);
 	void setDeck(Deck*);
 	Deck* getDeck(void);
 

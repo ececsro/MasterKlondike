@@ -21,7 +21,6 @@ void Tableu::print() {
 	io->putConsole("-- Tableu " + to_string(tableuPosition + 1) + " --");
 
 	this->printDeck();
-
 }
 
 bool Tableu::isAllowToMove(Card* cardToMove) {
@@ -39,4 +38,8 @@ bool Tableu::isAllowToMove(Card* cardToMove) {
 		}
 	}
 	return (result);
+}
+
+void Tableu::moveCards(Card* cardToMove) {
+	cardToMove->getDeck();
 }

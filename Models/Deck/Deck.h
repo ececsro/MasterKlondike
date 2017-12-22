@@ -37,6 +37,13 @@ public:
 
 	virtual void print(void);
 	virtual void setPosition(int);
+
+//	list<Card>::iterator findCardIterator(Card*);
+	virtual void moveCards(Card*);
+	virtual list<Card>* getCards(Card*);
+	virtual void modifyOriginDeck(Card*);
+	virtual void putCards(list<Card>*);
+
 };
 
 #endif /* MASTERKLONDIKE_MODELS_DECK_DECK_H_ */

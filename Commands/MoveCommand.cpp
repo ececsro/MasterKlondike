@@ -43,6 +43,7 @@ void MoveCommand::execute() {
 	}
 	else{
 		ioConsole->putConsole("Card movement is allowed");
+		moveController.printBoard();
 	}
 }
 

@@ -25,7 +25,7 @@ Menu::Menu() {
 	list<command::Command*>::iterator CommandIt = CommandList.begin();
 	list<command::Command*>::iterator NextCommandIt = CommandIt;
 
-	for (signed int i=0; i < (CommandList.size() - 1) ; i++ ) {
+	for (unsigned int i=0; i < (CommandList.size() - 1) ; i++ ) {
 		NextCommandIt++;
 		(*CommandIt)->setNextCommand( (*(NextCommandIt)) );
 		CommandIt++;
@@ -70,3 +70,4 @@ bool Menu::isInGame(void) {
 }
 
 } /* namespace menu */
+

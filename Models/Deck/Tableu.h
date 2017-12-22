@@ -12,6 +12,8 @@ public:
 	int getPosition(void);
 	void print(void);
 	bool isAllowToMove(Card* );
+	virtual void moveCards(Card*);
+
 };
 
 #endif /* MASTERKLONDIKE_MODELS_DECK_TABLEU_H_ */

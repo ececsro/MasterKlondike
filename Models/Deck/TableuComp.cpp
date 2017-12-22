@@ -24,13 +24,15 @@ Deck* TableuComp::getDeck(int TableuPosition) {
 }
 
 void TableuComp::print(void) {
-	for (int i=0; i < Tableu.size(); i++){
+	for (unsigned i=0; i < Tableu.size(); i++){
 		Tableu.at(i)->print();
 	}
 }
 
 Card* TableuComp::findCard(CardExtras* cardToFind) {
-	for (int i=0; i < Tableu.size(); i++){
-		Tableu.at(i)->findCard(cardToFind);
+	Card* cardFound = nullptr;
+	for (unsigned i=0; i < Tableu.size() && cardFound == nullptr; i++){
+		cardFound=Tableu.at(i)->findCard(cardToFind);
 	}
+	return cardFound;
 }

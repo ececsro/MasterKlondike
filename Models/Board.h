@@ -17,6 +17,7 @@ protected:
 
 public:
 	virtual ~Board();
+
 	static Board* getInstance();
 
 	void setDeck(Deck*, DeckType);

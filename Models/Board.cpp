@@ -29,7 +29,7 @@ Card* Board::findCard(string cardName) {
 	CardExtras* cardToCompare = new CardExtras(cardName);
     Card* cardFound = nullptr;
 
-	for ( int i=0; cardFound == nullptr; i++){
+	for ( int i=0; cardFound == nullptr ; i++){
 		cardFound=(DeckSet.at(i))->findCard(cardToCompare);
 	}
 
@@ -85,6 +85,7 @@ bool Board::isCardEligible(string cardName) {
     Card* cardFound = this->findCard(cardName);
 
     if (cardFound != nullptr){
+
     	result = cardFound->isCardEligible();
     }
     return (result);
@@ -97,7 +98,7 @@ bool Board::checkToMove(string cardName, string placeToMove) {
 	Deck* deckToMove = this->findDeck(placeToMove);
 	Card* cardFound = this->findCard(cardName);
 
-    if (cardFound->isCardEligible()) {
+	if (cardFound->isCardEligible()) {
     	result = deckToMove->isAllowToMove(cardFound);
     }
     return (result);
@@ -109,4 +110,10 @@ void Board::moveCards(string cardName, string placeToMove) {
 	Deck* deckToMove = this->findDeck(placeToMove);
 
 	list<Card>* cardsToMove;
+
+	cardFound->getDeck()->modifyOriginDeck(cardFound);
+
+	cardsToMove = cardFound->getDeck()->getCards(cardFound);
+
+	deckToMove->putCards(cardsToMove);
 }

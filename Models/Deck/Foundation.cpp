@@ -25,8 +25,25 @@ int Foundation::getPosition(void) {
 }
 
 void Foundation::print() {
+	string foundationSuitName;
+
+	switch (foundationSuit) {
+	case (int) FoundationType::DIAMONDS:
+			foundationSuitName="Diamonds";
+			break;
+	case (int) FoundationType::CLUBS:
+			foundationSuitName="Clubs";
+			break;
+	case (int) FoundationType::HEARTS:
+			foundationSuitName="Hearts";
+			break;
+	case (int) FoundationType::SPADES:
+			foundationSuitName="Spades";
+			break;
+	}
+
 	IOInterface* io = IOInterface::getInstance();
-	io->putConsole("-- Foundatation " + to_string(foundationSuit) + " --");
+	io->putConsole("-- Foundation " + foundationSuitName + " --");
 
 	this->printDeck();
 }

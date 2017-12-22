@@ -66,19 +66,24 @@ void Card::setCardName(void) {
 void Card::printCard(void) {
 
 	string OutputString;
-	OutputString = "CardName " + to_string(cardId) + ": " + this->cardExtras->getCardName();
-    if (isVisible){
+//  Next OutputString is for debug mode, showing the CardId. No need in production.
+//	OutputString = "CardName " + to_string(cardId) + ": " + this->cardExtras->getCardName();
+	OutputString = this->cardExtras->getCardName();
+    if (this->isCardVisible()){
     	OutputString = OutputString + " IS VISIBLE";
     }
 
-    if (isEligible){
+    if (this->isCardEligible()){
     	OutputString = OutputString + " AND ELIGIBLE";
     }
 
-    if (isVisible) {
-    	IOInterface* ioTmp = IOInterface::getInstance();
-    	ioTmp->putConsole(OutputString);
+    if (this->isCardVisible()) {
+    	IOInterface::getInstance()->putConsole(OutputString);
     }
+//    The next 'else' is for testing purposed. Remove for production.
+//    else {
+//       	IOInterface::getInstance()->putConsole(OutputString);
+//    }
 }
 
 
@@ -104,6 +109,10 @@ int Card::getCardId(void) {
 
 bool Card::isEqual(CardExtras* cardToCompare) {
 	return (this->cardExtras->isEqual(cardToCompare));
+}
+
+bool Card::isEqual(Card* cardToCompare) {
+	return (this->cardExtras->isEqual(cardToCompare->cardExtras));
 }
 
 void Card::setDeck(Deck* deckWhereCardIs) {
